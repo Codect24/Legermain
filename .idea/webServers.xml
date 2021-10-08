@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5d5cfe57-b888-4aa3-ab92-2143a9549eab" name="tom-lefrere">
+        <fileTransfer accessType="SFTP" host="access778476001.webspace-data.io" port="22" sshConfigId="c5fda432-b670-45fd-a1db-85d1a85c7163" sshConfig="u96903043-symfony@access778476001.webspace-data.io:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
