@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JobOfferAnswer{% endblock %}
+
+{% block body %}
+    <h1>JobOfferAnswer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ job_offer_answer.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ job_offer_answer.name }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ job_offer_answer.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ job_offer_answer.mail }}</td>
+            </tr>
+            <tr>
+                <th>PhoneNumber</th>
+                <td>{{ job_offer_answer.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ job_offer_answer.description }}</td>
+            </tr>
+            <tr>
+                <th>Cv</th>
+                <td>{{ job_offer_answer.cv }}</td>
+            </tr>
+            <tr>
+                <th>MotivationLetter</th>
+                <td>{{ job_offer_answer.motivationLetter }}</td>
+            </tr>
+            <tr>
+                <th>PublicationDate</th>
+                <td>{{ job_offer_answer.publicationDate ? job_offer_answer.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>JobOfferState</th>
+                <td>{{ job_offer_answer.jobOfferState }}</td>
+            </tr>
+            <tr>
+                <th>ArchivingState</th>
+                <td>{{ job_offer_answer.archivingState }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('job_offer_answer_index') }}">back to list</a>
+
+    <a href="{{ path('job_offer_answer_edit', {'id': job_offer_answer.id}) }}">edit</a>
+
+    {{ include('job_offer_answer/_delete_form.html.twig') }}
+{% endblock %}
