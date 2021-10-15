@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New JobOfferAnswer{% endblock %}
+
+{% block body %}
+    <h1>Create new JobOfferAnswer</h1>
+
+    {{ include('job_offer_answer/_form.html.twig') }}
+
+    <a href="{{ path('job_offer_answer_index') }}">back to list</a>
+{% endblock %}
