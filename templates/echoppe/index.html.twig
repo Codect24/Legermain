@@ -1,7 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Echoppe{% endblock %}
+{% block title %}Échoppe - Legermain{% endblock %}
 
 {% block body %}
-    <h1>Echoppe index</h1>
+    <div class="container">
+        <h1 class="mt-3 mb-4">Legermain | Échoppe</h1>
+        <div class="row">
+            {% for produit in produits %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="https://via.placeholder.com/200x150" alt="{{ produit.name }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ produit.name }}</h5>
+                            <p class="card-text">{{ produit.description }}</p>
+                            <div class="d-flex justify-content-between align-item-center">
+                                <a href="{{ path('product_detail', {id: produit.id}) }}" class="btn btn-dark">View details</a>
+                                <span class="h5 mt-auto">{{ produit.price }} €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
