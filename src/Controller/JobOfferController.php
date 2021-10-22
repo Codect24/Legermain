@@ -10,15 +10,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/job/offer')]
+#[Route('/jobs')]
 class JobOfferController extends AbstractController
 {
     #[Route('/', name: 'job_offer_index', methods: ['GET'])]
     public function index(JobOfferRepository $jobOfferRepository): Response
     {
-        return $this->render('job_offer/index.html.twig', [
-            'job_offers' => $jobOfferRepository->findAll(),
-        ]);
+        if(isset($_GET['jobsFilter'])) {
+            return $this->render('job_offer/index.html.twig', [
+                'job_offers' => $jobOfferRepository->findAllByTitle($_GET['jobsFilter']),
+//                'job_offers' => $jobOfferRepository->findAll(),
+
+            ]);
+        } else {
+            return $this->render('job_offer/index.html.twig', [
+                'job_offers' => $jobOfferRepository->findAll(),
+            ]);
+        }
     }
 
     #[Route('/new', name: 'job_offer_new', methods: ['GET', 'POST'])]
