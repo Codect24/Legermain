@@ -47,6 +47,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $custumerRequestRelation;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=15)
+     */
+    private $telephone;
+
     public function __construct()
     {
         $this->relation = new ArrayCollection();
@@ -198,6 +213,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $custumerRequestRelation->setUserId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(string $telephone): self
+    {
+        $this->telephone = $telephone;
 
         return $this;
     }
