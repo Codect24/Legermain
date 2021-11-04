@@ -19,12 +19,12 @@ class InscriptionType extends AbstractType
         $builder
             ->add('nom', TextType::class, [
                 'label'=>'Nom :',
-                'constraints' => new Lenght(2,20)
+
 
             ])
             ->add('prenom', TextType::class, [
                 'label'=>'Prenom :',
-                'constraints' => new Lenght(2,20)
+
 
             ])
             ->add('password',RepeatedType::class,[
@@ -40,7 +40,7 @@ class InscriptionType extends AbstractType
                 'invalid_message'=> 'les emails ne correspondes pas',
                 'required'=>true,
                 'label'=> 'Adresse e-mail :',
-                'constraints' => new Lenght(2,60),
+
                 'first_options'=>[ 'label'=>'Adresse e-mail :'],
                 'second_options' => ['label' => 'Confirmation daddresse e-mail :']
             ])
