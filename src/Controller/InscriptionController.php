@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 class InscriptionController extends AbstractController
 {
     private $entityManager;
@@ -19,7 +21,7 @@ class InscriptionController extends AbstractController
     }
 
     #[Route('/inscription', name: 'inscription')]
-    public function index(Request $request): Response
+    public function index(Request $request, UserPasswordEncoderInterface $encoder ): Response
     {
         $user = new User();
         $form = $this->createForm(InscriptionType::class, $user);
@@ -30,7 +32,10 @@ class InscriptionController extends AbstractController
 
             $user= $form->getData();
 
-            $doctrine = $this->getDoctrine()->getManager();
+            $password = $encoder->encodePassword($user,$user->getPassword());
+
+            $user->setPassword($password);
+
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }
