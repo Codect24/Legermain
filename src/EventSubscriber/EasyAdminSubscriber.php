@@ -1,22 +1,19 @@
 <?php
 
-# src/EventSubscriber/EasyAdminSubscriber.php
 namespace App\EventSubscriber;
 
-use App\Entity\Article;
+use DateTime;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Component\String\Slugger\SluggerInterface;
+use App\Entity\Article;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
-    private $slugger;
     private $security;
 
-    public function __construct(SluggerInterface $slugger,Security $security)
+    public function __construct(Security $security)
     {
-        $this->slugger = $slugger;
         $this->security = $security;
     }
 
@@ -32,9 +29,12 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $entity = $event->getEntityInstance();
 
         if (($entity instanceof Article)) {
+            $now = new DateTime('now');
+            $entity->setPublicationDate($now);
             $user = $this->security->getUser();
             $entity->setUser($user);
+            return;
+        }
         return;
-    }
     }
 }
