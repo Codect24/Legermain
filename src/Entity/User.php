@@ -169,7 +169,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->relation->contains($relation)) {
             $this->relation[] = $relation;
-            $relation->setUserId($this);
+            $relation->setUser($this);
         }
 
         return $this;
@@ -179,8 +179,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->relation->removeElement($relation)) {
             // set the owning side to null (unless already changed)
-            if ($relation->getUserId() === $this) {
-                $relation->setUserId(null);
+            if ($relation->getUser() === $this) {
+                $relation->setUser(null);
             }
         }
 

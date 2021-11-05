@@ -34,6 +34,7 @@ class Article
 
     /**
      * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $publicationDate;
 
@@ -41,7 +42,7 @@ class Article
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="relation")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $userId;
+    private $user;
 
     /**
      * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="articleId")
@@ -64,14 +65,6 @@ class Article
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
-
-        // VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine,
-        // otherwise the event listeners won't be called and the file is lost
-        if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
-        }
     }
 
     public function getImageFile()
@@ -99,14 +92,14 @@ class Article
         return $this->id;
     }
 
-    public function getUserID(): ?int
+    public function getUser(): ?User
     {
-        return $this->userId;
+        return $this->user;
     }
 
-    public function setUserID(int $userId): self
+    public function setUser(User $user): self
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
     }
@@ -147,12 +140,12 @@ class Article
         return $this;
     }
 
-    public function getPublicationDate(): ?\DateTimeInterface
+    public function getPublicationDate(): ?\DateTime
     {
         return $this->publicationDate;
     }
 
-    public function setPublicationDate(\DateTimeInterface $publicationDate): self
+    public function setPublicationDate(\DateTime $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
 
