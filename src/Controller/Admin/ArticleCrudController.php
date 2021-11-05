@@ -4,6 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -12,14 +18,15 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
             TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+            TextField::new('content'),
+            DateField::new('publicationDate'),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+            ImageField::new('image')->setBasePath('/uploads/artciles')->onlyOnIndex(),
+
+            ];
     }
-    */
 }
