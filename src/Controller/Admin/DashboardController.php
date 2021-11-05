@@ -27,14 +27,11 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::section('Utilisateurs'),
-            MenuItem::linkToCrud('Membres', 'fa fa-tags', User::class),
-            MenuItem::linkToCrud('Articles', 'fa fa-tags', Article::class),
-            MenuItem::linkToCrud('Commentaires', 'fa fa-tags', Comments::class),
+            MenuItem::linkToCrud('Membres', 'fa fa-users', User::class),
+            MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
+            MenuItem::linkToCrud('Commentaires', 'fa fa-comments', Comments::class),
             MenuItem::section('Emploi'),
-            MenuItem::linkToCrud('Offres', 'fa fa-tags', JobOffer::class),
-            MenuItem::section('Multimedia'),
-            MenuItem::linkToCrud('Galeries d\'images', 'fa fa-tags', Galerie::class),
-            MenuItem::linkToCrud('Images', 'fa fa-tags', Image::class),
+            MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class)
         ];
     }
 }
