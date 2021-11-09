@@ -38,6 +38,11 @@ class Produit
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $visual_src;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,18 @@ class Produit
     public function setCategorie(?ProduitCategorie $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getVisualSrc(): ?string
+    {
+        return $this->visual_src;
+    }
+
+    public function setVisualSrc(?string $visual_src): self
+    {
+        $this->visual_src = $visual_src;
 
         return $this;
     }
