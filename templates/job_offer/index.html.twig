@@ -3,25 +3,36 @@
 {% block title %}JobOffer index{% endblock %}
 
 {% block body %}
-    <h1>JobOffer index</h1>
-
-
+    <h1>Menu</h1>
     <form>
         <input name="jobsFilter" type="search">
         <input type="submit" value="Sort">
     </form>
+    <p>{{ job_offers|length > 0 ? 'Il y a X  résultats correspondant à votre recherche' : 'Pas de résultats' }}</p>
 
+    <div class="list-group">
+        {% for job_offer in job_offers %}
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start my-1 active .col-sm">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ job_offer.title }}</h5>
+                    <small>{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</small>
+                </div>
+                <p class="mb-1">{{ job_offer.description }}</p>
+                <small>Donec id elit non mi porta.</small>
+            </a>
+        {% endfor %}
+    </div>
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Details</th>
-                <th>JobType</th>
-                <th>PublicationDate</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Details</th>
+            <th>JobType</th>
+            <th>PublicationDate</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for job_offer in job_offers %}
@@ -31,7 +42,7 @@
                 <td>{{ job_offer.description }}</td>
                 <td>{{ job_offer.details }}</td>
                 <td>{{ job_offer.jobType }}</td>
-                <td>{{ job_offer.publicationDate ? job_offer.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</td>
                 <td>
                     <a href="{{ path('job_offer_show', {'id': job_offer.id}) }}">show</a>
                     <a href="{{ path('job_offer_edit', {'id': job_offer.id}) }}">edit</a>
