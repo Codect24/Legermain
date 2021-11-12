@@ -47,10 +47,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $custumerRequestRelation;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Realisation::class, mappedBy="userID")
+     */
+    private $categorie;
+
     public function __construct()
     {
         $this->relation = new ArrayCollection();
         $this->custumerRequestRelation = new ArrayCollection();
+        $this->categorie = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -196,6 +202,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($custumerRequestRelation->getUserId() === $this) {
                 $custumerRequestRelation->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Realisation[]
+     */
+    public function getCategorie(): Collection
+    {
+        return $this->categorie;
+    }
+
+    public function addCategorie(Realisation $categorie): self
+    {
+        if (!$this->categorie->contains($categorie)) {
+            $this->categorie[] = $categorie;
+            $categorie->setUserID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategorie(Realisation $categorie): self
+    {
+        if ($this->categorie->removeElement($categorie)) {
+            // set the owning side to null (unless already changed)
+            if ($categorie->getUserID() === $this) {
+                $categorie->setUserID(null);
             }
         }
 
