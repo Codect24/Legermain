@@ -1,3 +1,24 @@
 body {
   background-color: #EDEAE6;
 }
+
+.main-content {
+  $spacer: 8em;
+  margin-left: $spacer;
+  margin-right: $spacer;
+}
+
+.list-group-item {
+  color: white;
+  background-color: #C9B498;
+  border-radius: 8px 8px;
+  margin: 1px;
+}
+
+.list-group-item :hover {
+  opacity: 0.8;
+}
+
+.list-group-title {
+  font-size: medium;
+}
