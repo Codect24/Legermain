@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/jobs') }}
+{% endblock %}
 {% block title %}JobOffer index{% endblock %}
 
 {% block body %}
