@@ -17,6 +17,7 @@ class ProductController extends AbstractController
     public function index(Produit $produit, Request $request, CartManager $cartManager): Response
     {
 		$form = $this->createForm(AddToCartType::class);
+		$form->handleRequest($request);
 		if ($form->isSubmitted() && $form->isValid())
 		{
 			$item = $form->getData();
@@ -29,10 +30,10 @@ class ProductController extends AbstractController
 
 			$cartManager->save($cart);
 
-			return $this->redirectToRoute('product_detail', ['id' => $produit->getId()]);
+//			return $this->redirectToRoute('product_detail', ['id' => $produit->getId()]);
+			return $this->redirectToRoute('echoppe_index');
 		}
 
-		$form->handleRequest($request);
 
         return $this->render('product/detail.html.twig', [
             'product' => $produit,

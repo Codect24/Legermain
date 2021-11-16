@@ -19,6 +19,20 @@ class OrderRepository extends ServiceEntityRepository
         parent::__construct($registry, Order::class);
     }
 
+	public function findCartsNotModifiedSince(\DateTime $limitDate, int $limit = 10): array
+	{
+		return $this
+			->createQueryBuilder('o')
+			->andWhere('o.status = :status')
+			->andWhere('o.dateUpdate < :date')
+			->setParameter('status', Order::STATUT_CART)
+			->setParameter('date', $limitDate)
+			->setMaxResults($limit)
+			->getQuery()
+			->getResult()
+		;
+	}
+
     // /**
     //  * @return Order[] Returns an array of Order objects
     //  */
