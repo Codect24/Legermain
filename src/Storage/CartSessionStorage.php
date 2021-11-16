@@ -21,7 +21,7 @@ class CartSessionStorage
 
 	public function getCart(): ?Order
 	{
-		return $this->cartRepository->findOneBy(['id' => $this->getCartId(), 'statut' => Order::STATUT_CART]);
+		return $this->cartRepository->findOneBy(['id' => $this->getCartId(), 'status' => Order::STATUT_CART]);
 	}
 
 	public function setCart(Order $cart): void

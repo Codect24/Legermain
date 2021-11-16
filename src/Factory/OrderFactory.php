@@ -12,7 +12,7 @@ class OrderFactory
 	{
 		$order = new Order();
 		$order
-			->setStatut(Order::STATUT_CART)
+			->setStatus(Order::STATUT_CART)
 			->setDateCreation(new \DateTime())
 			->setDateUpdate(new \DateTime());
 		return $order;

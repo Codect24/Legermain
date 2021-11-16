@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class CartManager
 {
-	private  $cartSessionStorage;
+	private $cartSessionStorage;
 	private $cartFactory;
 	private $entityManager;
 
