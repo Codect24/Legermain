@@ -1,5 +1,6 @@
 body {
   background-color: #EDEAE6;
+  color: white;
 }
 
 .main-content {
@@ -9,8 +10,6 @@ body {
 }
 
 .list-group-item {
-  color: white;
-  background-color: #C9B498;
   border-radius: 8px 8px;
   margin: 1px;
 }
@@ -21,4 +20,8 @@ body {
 
 .list-group-title {
   font-size: medium;
+}
+
+.job-item {
+  background-color: #C9B498;
 }
