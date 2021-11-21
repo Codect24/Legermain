@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Realisation;
 use App\Form\RealisationType;
 use App\Repository\RealisationRepository;
+use PhpParser\Node\Scalar\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +19,14 @@ class RealisationController extends AbstractController
     {
         return $this->render('realisation/index.html.twig', [
             'realisations' => $realisationRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/{slug}', name: 'presentation', methods: ['GET'])]
+    public function presentation(String $slug, RealisationRepository $realisationRepository): Response
+    {
+        return $this->render('realisation/presentation.html.twig', [
+            'realisations' => $realisationRepository->rechercheParSlug($slug),
         ]);
     }
 

@@ -4,20 +4,20 @@
 
 {% block body %}
     <h1>Realisations</h1>
-    {% for realisation in realisations %}
-        <a href="{{ path('presentation', {'slug': realisation.slug}) }}">
+        {% for realisation in realisations %}
+            <a href="{{ path('presentation', {'slug': realisation.slug}) }}">
             <div class="card" style="width: 18rem;">
                 <img src="../uploads/images/realisation/{{ realisation.image }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ realisation.title }}</h5>
                 </div>
             </div>
-        </a>
-    {% else %}
-        <tr>
-            <td colspan="6">Une erreur est survenue, article introuvable.</td>
-        </tr>
-    {% endfor %}
-    </tbody>
+            </a>
+        {% else %}
+            <tr>
+                <td colspan="6">Une erreur est survenue, article introuvable.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
     </table>
 {% endblock %}

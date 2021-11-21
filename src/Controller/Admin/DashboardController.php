@@ -8,10 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 use App\Entity\Comments;
-use App\Entity\Galerie;
 use App\Entity\JobOffer;
 use App\Entity\Article;
-use App\Entity\Image;
+use App\Entity\Realisation;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -31,7 +30,9 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
             MenuItem::linkToCrud('Commentaires', 'fa fa-comments', Comments::class),
             MenuItem::section('Emploi'),
-            MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class)
+            MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
+            MenuItem::section('Contenu'),
+            MenuItem::linkToCrud('Réalisations', 'fa fa-wrench', Realisation::class)
         ];
     }
 }
