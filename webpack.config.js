@@ -23,6 +23,16 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('styles/jobs', './assets/styles/jobs.scss')
 
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]',
+    })
+
+    .copyFiles({
+        from: './assets/styles/fonts',
+        to: 'fonts/[path][name].[ext]',
+    })
+
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
