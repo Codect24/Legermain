@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-6">
-                <img src="/produits/{% if(product.visualSrc is not null) %}{{ product.visualSrc }}{% else %}0.png{% endif %}" alt="{{ product.name }}">
+                <img src="{% if(product.file is not null) %}{{ vich_uploader_asset(product, 'imageFile') }}{% else %}/produits/0.png{% endif %}" alt="{{ product.name }}">
             </div>
             <div class="col-6">
                 <h1>{{ product.name }}</h1>

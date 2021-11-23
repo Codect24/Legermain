@@ -6,18 +6,21 @@ use App\Entity\Order;
 use App\Factory\OrderFactory;
 use App\Storage\CartSessionStorage;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Security;
 
 class CartManager
 {
 	private $cartSessionStorage;
 	private $cartFactory;
 	private $entityManager;
+	private $security;
 
-	public function __construct(CartSessionStorage $cartStorage, OrderFactory $orderFactory, EntityManagerInterface $entityManager)
+	public function __construct(CartSessionStorage $cartStorage, OrderFactory $orderFactory, EntityManagerInterface $entityManager, Security $security)
 	{
 		$this->cartSessionStorage = $cartStorage;
 		$this->cartFactory = $orderFactory;
 		$this->entityManager = $entityManager;
+		$this->security = $security;
 	}
 
 	public function getCurrentCart(): Order
@@ -31,9 +34,9 @@ class CartManager
 		return $cart;
 	}
 
-	//[WIP] link to user
 	public function save(Order $cart):void
 	{
+		$cart->setUser($this->security->getUser());
 		$this->entityManager->persist($cart);
 		$this->entityManager->flush();
 

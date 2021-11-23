@@ -21,11 +21,13 @@
                         {% for item in form.items %}
                             <li class="list-group-item d-flex">
                                 <div class="flex-fill mr-2">
-                                    <img src="/produits/{{ item.vars.data.product.visualSrc }}" alt="{{ item.vars.data.product.name }}" width="64">
+                                    <img src="{{ vich_uploader_asset(item.vars.data.product, 'imageFile') }}" alt="{{ item.vars.data.product.name }}" width="64">
                                 </div>
                                 <div class="flex-fill mr-2">
                                     <h5 class="mt-0 mb-0">{{ item.vars.data.product.name }}</h5>
+<!--
                                     <small>{{ item.vars.data.product.description[:50] }}...</small>
+-->
                                     <div class="form-inline mt-2">
                                         <div class="form-group mb-0 mr-2">
                                             {{ form_widget(item.quantity, {

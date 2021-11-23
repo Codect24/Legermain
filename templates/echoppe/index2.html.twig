@@ -39,8 +39,8 @@
                     {% for product in products %}
                         <div class="col-4">
                             <div class="card mb-4">
-                                {% if(product.visualSrc is not null) %}
-                                    <img src="/produits/{{ product.visualSrc }}" class="card-img-top" alt="{{ product.name }}">
+                                {% if(product.file is not null) %}
+                                    <img src="{{ vich_uploader_asset(product, 'imageFile') }}" class="card-img-top" alt="{{ product.name }}">
                                 {% else %}
                                     <img src="/produits/0.png" class="card-img-top" alt="Image non disponible">
                                 {% endif %}
