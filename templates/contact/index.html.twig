@@ -1,8 +1,78 @@
 {% extends 'base.html.twig' %}
+{% form_theme form _self %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 
 {% block title %}Contact index{% endblock %}
 
-{% block body %}
-    <h1>Contact index</h1>
+{% block head %}
+    <html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </html>
+{% endblock %}
 
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3" style="background-image:url({{ asset('contactimages/banc.png') }})">
+                <div style="background-color: rgba(201,180,152,0.7); margin:10% 5%; padding:5%">
+                <h2 style="margin-bottom:5%; color:rgb(237,234,230)">Un devis, une question ?</h2>
+                <p style="line-height:50px; color:rgb(237,234,230)">
+                    Contactez nous par mail, ou
+                    téléphone, ou remplissez notre
+                    formulaire de contact.
+                    <br>
+                    Téléphone : 02 47 36 70 34
+                    <br>
+                    Mobile : 0788994455
+                    <br>
+                    infos@legermain.com
+                    <br>
+                    Vous pouvez aussi nous suivre
+                    sur les réseaux sociaux !
+
+                </p>
+                <h2 style="margin: 5% 0%; color:rgb(237,234,230)"> Retrouvez votre agence</h2>
+                <p style="line-height:50px; color:rgb(237,234,230)">
+                    <strong>ABC Legermain</strong><br>
+                    A la zone Artisanale de <br>
+                    Rouez en Champagne <br>
+                    72140
+                </p>
+                <h2 style="margin: 5% 0%; color:rgb(237,234,230)"> Horaires </h2>
+                <p style="line-height:50px; color:rgb(237,234,230)">
+                    Du lundi au vendredi <br>
+                    <strong> de 8h à 8h05 </strong><br>
+                    Le samedi <br>
+                    <strong> de 11h à 12h. </strong>
+                </p>
+                </div>
+            </div>
+            <div class="col-md-9" style="padding:5% 15%; background-color:rgb(237,234,230)">
+                <h3 style="text-align: center; color:rgb(56,68,57)">Formulaire de contact</h3>
+                {{ form_start(form) }}
+                <div>
+                    <div class="form-group" style="width:50%; float: left; padding-right: 5%" >
+                        {{ form_label(form.name, 'Nom') }}
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                    <div class="form-group" style="width:50%; float: right; padding-left: 5%">
+                        {{ form_label(form.firstname, 'Prénom') }}
+                        {{ form_widget(form.firstname) }}
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                </div>
+                {{ form_row(form.mail) }}
+                <div class="form-group">
+                    {{ form_label(form.telephone) }}
+                    {{ form_widget(form.telephone)}}
+                    {{ form_errors(form.telephone) }}
+                </div>
+                {{ form_row(form.title) }}
+                {{ form_row(form.message) }}
+                {{ form_row(form.save) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
