@@ -1,10 +1,7 @@
-console.log("test")
-/* Open */
-function openNav() {
+window.openNav = function openNav() {
     document.getElementById("myNav").style.height = "100%";
 }
 
-/* Close */
-function closeNav() {
+window.closeNav = function closeNav() {
     document.getElementById("myNav").style.height = "0%";
 }

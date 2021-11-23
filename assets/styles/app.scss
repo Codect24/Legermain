@@ -1,13 +1,9 @@
 /* assets/styles/app.scss */
-
-// customize some Bootstrap variables
 $primary: darken(#428bca, 20%);
 $mainBackgroundTheme: #EDEAE6;
 
-// the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-//@import url('public/build/fonts/Slimmo_Jimmy.otf');
 
 @font-face {
   font-family: 'Slimmo_Jimmy';
@@ -18,8 +14,6 @@ $mainBackgroundTheme: #EDEAE6;
 
 body, html {
   height: 100%;
-}
-body {
   font-family: 'Open Sans', sans-serif;
   background-color: $mainBackgroundTheme;
 }
@@ -30,14 +24,12 @@ body {
 
 .lg-homeDiv {
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   color: white;
 }
 
 .lg-home-logo {
-  width: 100%;
-  max-width: 15em;
-  height: auto;
+  width: 20%;
 }
 
 .lg-home-brand {
@@ -45,40 +37,43 @@ body {
   margin-left: 0.5em;
 }
 
-
+.lg-home-spacer {
+  margin: auto;
+  border-color: white;
+  background-color: white;
+}
 
 .overlay {
-  height: 0%;
+  height: 0;
   width: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.9);
+  background-color: #C9B498;
   overflow-y: hidden;
   transition: 0.5s;
 }
 
 .overlay-content {
   position: relative;
-  top: 25%;
+  top: 8%;
   width: 100%;
   text-align: center;
-  margin-top: 30px;
 }
 
 .overlay a {
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
-  color: #818181;
   display: block;
   transition: 0.3s;
+  color: white;
+  cursor: default
 }
 
 .overlay a:hover, .overlay a:focus {
-  color: #f1f1f1;
+  color: #3F4B41;
 }
 
 .overlay .closebtn {
@@ -96,4 +91,18 @@ body {
     top: 15px;
     right: 35px;
   }
+}
+
+.lg-home-activity {
+  color: #081E0A;
+}
+
+.lg-home-activity-title {
+  font-weight: lighter;
+  font-size: 28px;
+}
+
+.lg-home-activity-text {
+  font-weight: lighter;
+  font-size: 22px;
 }

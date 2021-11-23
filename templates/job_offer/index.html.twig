@@ -4,8 +4,9 @@
     {{ encore_entry_link_tags('styles/jobs') }}
 {% endblock %}
 {% block title %}JobOffer index{% endblock %}
-
 {% block body %}
+    {{ include('menu/menu.html.twig', {lightMode: true}) }}
+
     <h1>Menu</h1>
     <div class="main-content">
         <form>
