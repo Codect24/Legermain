@@ -2,12 +2,49 @@
 
 {% block title %}Hello HomeController!{% endblock %}
 {% block body %}
-    <div>
-        <h1 class="lg-home-title">Menu</h1>
-        <div class="d-flex flex-row">
-            <img src="{{ asset('build/images/logo.png') }}" alt="Logo Legermain">
+    <!-- The overlay -->
+{#    <div id="myNav" class="overlay">#}
+
+{#        <!-- Button to close the overlay navigation -->#}
+{#        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>#}
+
+        <!-- Overlay content -->
+
+
+{#    </div>#}
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <img class="lg-home-logo" src="{{ asset('build/images/logo.png') }}" alt="Logo Legermain">
+            <a href="#">Réalisations</a>
+            <a href="#">Recrutement</a>
+            <hr>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+
+    <div class="lg-homeDiv p-4" style="background-image:url('{{ asset('build/images/plankBoard.jpg') }}')">
+        <h1 class="lg-home-title" style="cursor: pointer" onclick="openNav()">Menu</h1>
+        <div class="d-flex flex-row justify-content-center">
+            <img class="lg-home-logo" src="{{ asset('build/images/logo.png') }}" alt="Logo Legermain">
             <h1 class="lg-home-brand">Legermain</h1>
         </div>
     </div>
 
+    <!--TODO : Replace with a real entry-->
+    {% block javascripts %}
+        {{ parent() }}
+        <script>
+            function openNav() {
+                document.getElementById("myNav").style.height = "100%";
+            }
+
+            /* Close */
+            function closeNav() {
+                document.getElementById("myNav").style.height = "0%";
+            }
+        </script>
+    {% endblock %}
 {% endblock %}
