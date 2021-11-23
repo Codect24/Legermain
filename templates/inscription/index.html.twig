@@ -5,9 +5,37 @@
 {% block body %}
     {% block content %}
         <h1>Inscription</h1>
+        <div class="form">
+            {{ form(form) }}
+        </div>
 
-        {{ form(form) }}
+        <div class="ligneVerticale">
+            {#
+            css pour la ligne vertical
 
+            width: 5px
+            height:60%;
+            #}
+        </div>
+
+        <div class="bouton">
+            <h1>connexion</h1>
+            <a href="/connexion">
+                <div id="triangleDroite">
+                    {#
+                        css pour la flèche
+
+                        #triangle {
+                        width: 0;
+                        height: 0;
+                        border-top: 18px solid transparent;
+                        border-bottom: 18px solid transparent;
+                        border-left: 30px solid blue;
+                        }
+                    #}
+                </div>
+            </a>
+        </div>
     {% endblock %}
 
 {% endblock %}
