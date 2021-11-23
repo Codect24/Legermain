@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Form\InscriptionType;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\Array_;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +27,7 @@ class InscriptionController extends AbstractController
     {
         $user = new User();
         $form = $this->createForm(InscriptionType::class, $user);
-
+        $role= array('utilisateur');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -35,6 +37,7 @@ class InscriptionController extends AbstractController
             $password = $encoder->encodePassword($user,$user->getPassword());
 
             $user->setPassword($password);
+            $user->setRoles($role);
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
