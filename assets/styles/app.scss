@@ -9,7 +9,91 @@ $mainBackgroundTheme: #EDEAE6;
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 //@import url('public/build/fonts/Slimmo_Jimmy.otf');
 
+@font-face {
+  font-family: 'Slimmo_Jimmy';
+  src: url('fonts/Slimmo_Jimmy.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body, html {
+  height: 100%;
+}
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: $mainBackgroundTheme;
+}
+
+.lg-home-title, .lg-home-brand {
+  font-family: "Slimmo_Jimmy";
+}
+
+.lg-homeDiv {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: white;
+}
+
+.lg-home-logo {
+  width: 100%;
+  max-width: 15em;
+  height: auto;
+}
+
+.lg-home-brand {
+  font-size: 10vw;
+  margin-left: 0.5em;
+}
+
+
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }
