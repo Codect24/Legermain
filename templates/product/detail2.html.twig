@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }} | Échoppe - Legermain{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <img src="/produits/{% if(product.visualSrc is not null) %}{{ product.visualSrc }}{% else %}0.png{% endif %}" alt="{{ product.name }}">
+            </div>
+            <div class="col-6">
+                <h1>{{ product.name }}</h1>
+                <h2>Prix : {{ product.price}} €</h2>
+                <p>{{ product.description }}</p>
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.quantity) }}
+                    {{ form_widget(form.quentity, {'attr' : {'class' : 'form-control'~(form.quantity.vars.valid ? '' : 'is-invalid')}}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
