@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Legermain{% endblock %}
+{% block body %}
+    {{ include('menu/menu.html.twig', {lightMode: false}) }}
+
+    <div class="lg-homeDiv p-5" style="background-image:url('{{ asset('build/images/plankBoard.jpg') }}')">
+        <div class="d-flex flex-row justify-content-center my-auto">
+            <img class="lg-home-logo " src="{{ asset('build/images/logo.png') }}" alt="Logo Legermain">
+            <h1 class="lg-home-brand align-items-center my-auto">Legermain</h1>
+        </div>
+    </div>
+
+    <div class="lg-home-activity d-flex flex-column">
+        <h2 class="lg-home-activity-title text-center my-4 mt-5">Spécialiste de la structure à ossature bois <br>et couverture depuis près de 20 ans</h2>
+        <hr class="lg-home-activity-spacer my-2 mx-auto" style="height: 4px; width: 35em"/>
+        <p class="lg-home-activity-text text-center my-4 mx-3">Maître Artisan et Compagnon charpentier depuis près de 20 ans.
+            Michel Legermain et son équipe de 25 professionnels sont les spécialistes de l’ossature bois.
+            D’abord créée en 2002, l’entreprise s’oriente rapidement vers la construction HQE. Dorénavant nous développons toujours plus notre activité autour de l’ossature bois.
+            Vous souhaitez concrétiser votre projet ? L’équipe de Stéphane Pouessel vous accompagne. Grâce à son bureau d’étude interne nous vous accompagnons de la conception  à la réalisation de votre projet.
+            Nous réalisons vos travaux de charpente bois mais également d’ossature bois.
+            En ce qui concerne l’extérieur de votre habitation, pensez à nos bardage bois mais également zinc ou composite !
+        </p>
+    </div>
+    <!--TODO : Add images -->
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('js/menu') }}
+    {% endblock %}
+{% endblock %}
