@@ -1,12 +1,16 @@
 <div id="myNav" class="overlay">
     <a class="closebtn" onclick="closeNav()" style="cursor: pointer">&times;</a>
     <div class="overlay-content align-content-center">
-        <a href="#"><img class="lg-home-logo my-5" src="{{ asset('build/images/logo.png') }}" style="width: 7em; cursor: pointer" alt="Logo Legermain"></a>
+        <a href="{{ path('home')}}"><img class="lg-home-logo my-5" src="{{ asset('build/images/logo.png') }}" style="width: 7em; cursor: pointer" alt="Logo Legermain"></a>
         <a href="#">Réalisations</a>
-        <a href="#">Recrutement</a>
-        <a href="#">Contact</a>
+        <a href="{{ path('job_offer_index')}}">Recrutement</a>
+        <a href="">Contact</a>
         <hr class="lg-home-spacer my-3" style="height: 4px; width: 15em"/>
         <a href="#">Compte</a>
     </div>
 </div>
 <h1 class="lg-home-title position-absolute mx-4 my-4" style="cursor: pointer; color: {{ lightMode ? '#081E0A' : 'white' }}" onclick="openNav()">Menu</h1>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('js/menu') }}
+{% endblock %}
