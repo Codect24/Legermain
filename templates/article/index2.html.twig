@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <!--
+    <link href="{{ asset('') }}" rel="stylesheet">
+-->
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="align-content-center">Articles</h1>
+
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-12">
+                    {% if article.highlighted %}
+                        <a href="{{ path('article_show2', {slug: article.slug}) }}">
+                            <div class="card d-flex flex-row">
+                                <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{ article.title }}" class="card-img-right" style="width: 300px; height: 250px">
+                                <div class="card-body" style="width: 50%">
+                                    <h2>{{ article.title }}</h2>
+                                    {{ article.content|raw }}
+                                    <p>{{ article.publicationDate|date("d/m/Y") }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path('article_show2', {slug: article.slug}) }}">
+                            <div class="card d-flex flex-row">
+                                <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{ article.title }}" class="card-img-right" style="width: 200px; height: 150px">
+                                <div class="card-body" style="width: 50%">
+                                    <h2>{{ article.title }}</h2>
+                                    {{ article.content|raw }}
+                                    <p>{{ article.publicationDate|date("d/m/Y") }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

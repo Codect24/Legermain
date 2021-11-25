@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <a href="{{ path('article_index2') }}">Retour</a>
+            <div class="col-12 d-flex flex-row">
+                <img src="{{ vich_uploader_asset(article, 'imageFile') }}" style="width: 600px; height: 500px">
+                <h1 class="d-flex align-items-center">{{ article.title }}</h1>
+            </div>
+            <div>
+                {{ article.content|raw }}
+            </div>
+        </div>
+        <div class="row">
+            <h2>Commentaires</h2>
+            {{ form(form) }}
+            {% if(comments is null) %}
+                <p>Aucun commentaire pour le moment</p>
+            {% else %}
+                {% for comment in comments %}
+                    <div class="col-12" style="margin-top: 10px">
+                        <div class="card">
+                            <div class="card-header">
+                                {{ app.user.email }}
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p>{{ comment.description }}</p>
+                                    <footer class="blockquote-footer">{{ comment.publicationDate|date('d.m.Y') }}</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
