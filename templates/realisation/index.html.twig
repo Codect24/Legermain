@@ -1,23 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Realisation index{% endblock %}
-
+     {% block stylesheets %}
+         {{ parent() }}
+         {{ encore_entry_link_tags('styles/realisation') }}
+     {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_link_tags('js/realisation') }}
+    {% endblock %}
 {% block body %}
     <h1>Realisations</h1>
+    <div class="container">
+        <div class="gallery-wrap">
     {% for realisation in realisations %}
-        <a href="{{ path('presentation', {'slug': realisation.slug}) }}">
-            <div class="card" style="width: 18rem;">
-                <img src="../uploads/images/realisation/{{ realisation.image }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ realisation.title }}</h5>
-                </div>
-            </div>
-        </a>
+        <div onclick="location.href='{{ path('presentation', {'slug': realisation.slug}) }}';" class="item" style="cursor: pointer; background-image: url('../uploads/images/realisation/{{ realisation.image }}')"></div>
     {% else %}
         <tr>
             <td colspan="6">Une erreur est survenue, article introuvable.</td>
         </tr>
     {% endfor %}
+    </div>
+    </div>
+    </div>
     </tbody>
     </table>
 {% endblock %}

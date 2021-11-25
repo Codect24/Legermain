@@ -3,21 +3,38 @@
 {% block title %}Realisation index{% endblock %}
 
 {% block body %}
-    <h1>Realisations</h1>
-        {% for realisation in realisations %}
-            <a href="{{ path('presentation', {'slug': realisation.slug}) }}">
-            <div class="card" style="width: 18rem;">
-                <img src="../uploads/images/realisation/{{ realisation.image }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ realisation.title }}</h5>
+    {% for realisation in realisations %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="carousel slide" id="carousel-300516">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" alt="" src="../uploads/images/realisation/{{ realisation.image }}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8 text-center lead">
+                        <h2>
+                            {{ realisation.title }}
+                        </h2>
+                        <p>
+                            {% if realisation.description | split(' ')[5] is defined %}
+                                {{ realisation.description | split(' ')[5] ~ '...' | raw }}
+                            {% else %}
+                                {{ realisation.description|raw }}
+                            {% endif %}
+                        </p>
+
+                    </div>
+                    <div class="col-md-2">
+                    </div>
                 </div>
             </div>
-            </a>
-        {% else %}
-            <tr>
-                <td colspan="6">Une erreur est survenue, article introuvable.</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}
