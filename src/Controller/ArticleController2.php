@@ -54,7 +54,7 @@ class ArticleController2 extends AbstractController
 		return $this->render('article/show2.html.twig', [
 			'article' => $article,
 			'form' => $form->createView(),
-			'comments' => $commentsRepository->findBy(['article' => $article->getId()], ['publicationDate' => 'ASC'])
+			'comments' => $commentsRepository->findJoinUserByArticle($article)
 		]);
 	}
 }
