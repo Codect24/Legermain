@@ -12,15 +12,19 @@
 {% block body %}
     <h1>Realisations</h1>
     <div class="container">
+
+    {% for realisation in realisations |batch(4)%}
         <div class="gallery-wrap">
-    {% for realisation in realisations %}
-        <div onclick="location.href='{{ path('presentation', {'slug': realisation.slug}) }}';" class="item" style="cursor: pointer; background-image: url('../uploads/images/realisation/{{ realisation.image }}')"></div>
+            {% for column in realisation%}
+                <div onclick="location.href='{{ path('presentation', {'slug': column.slug}) }}';" class="item" style="cursor: pointer; background-image: url('../uploads/images/realisation/{{ column.image }}')"></div>
+            {% endfor %}
+        </div>
     {% else %}
         <tr>
             <td colspan="6">Une erreur est survenue, article introuvable.</td>
         </tr>
     {% endfor %}
-    </div>
+
     </div>
     </div>
     </tbody>
