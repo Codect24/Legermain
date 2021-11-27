@@ -98,7 +98,10 @@
         "version": "v1.0.5"
     },
     "jms/metadata": {
-        "version": "2.5.1"
+        "version": "2.6.1"
+    },
+    "knplabs/knp-time-bundle": {
+        "version": "1.17.0"
     },
     "laminas/laminas-code": {
         "version": "4.4.3"
@@ -232,18 +235,6 @@
         },
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
-        ]
-    },
-    "symfony/apache-pack": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "9d254a22efca7264203eea98b866f16f944b2f09"
-        },
-        "files": [
-            "./public/.htaccess"
         ]
     },
     "symfony/asset": {
@@ -569,7 +560,7 @@
         ]
     },
     "symfony/uid": {
-        "version": "v5.3.3"
+        "version": "v5.3.10"
     },
     "symfony/validator": {
         "version": "4.3",
@@ -642,7 +633,7 @@
         "version": "v3.3.3"
     },
     "vich/uploader-bundle": {
-        "version": "1.18",
+        "version": "1.7",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
             "branch": "master",

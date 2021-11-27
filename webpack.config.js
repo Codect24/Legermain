@@ -21,6 +21,19 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('js/menu', './assets/js/menu.js')
+
+    .addEntry('styles/jobs', './assets/styles/jobs.scss')
+
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]',
+    })
+
+    .copyFiles({
+        from: './assets/styles/fonts',
+        to: 'fonts/[path][name].[ext]',
+    })
     .addEntry('styles/realisation', './assets/styles/realisation.scss')
     .addEntry('js/realisation', './assets/js/realisation.js')
 

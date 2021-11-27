@@ -1,43 +1,71 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/jobs') }}
+{% endblock %}
 {% block title %}JobOffer index{% endblock %}
-
 {% block body %}
-    <h1>JobOffer index</h1>
+    {{ include('menu/menu.html.twig', {lightMode: true}) }}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Details</th>
-                <th>JobType</th>
-                <th>PublicationDate</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for job_offer in job_offers %}
-            <tr>
-                <td>{{ job_offer.id }}</td>
-                <td>{{ job_offer.title }}</td>
-                <td>{{ job_offer.description }}</td>
-                <td>{{ job_offer.details }}</td>
-                <td>{{ job_offer.jobType }}</td>
-                <td>{{ job_offer.publicationDate ? job_offer.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('job_offer_show', {'id': job_offer.id}) }}">show</a>
-                    <a href="{{ path('job_offer_edit', {'id': job_offer.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <h1>Menu</h1>
+    <div class="main-content">
+        <form>
+            <input name="jobsFilter" type="search">
+            <input type="submit" value="Sort">
+        </form>
+        <p>{{ job_offers|length > 0 ? 'Il y a X  résultats correspondant à votre recherche' : 'Pas de résultats' }}</p>
 
-    <a href="{{ path('job_offer_new') }}">Create new</a>
+        <div class="list-group">
+            {% for job_offer in job_offers %}
+                <div class="list-jobs">
+                    <div class="job-item border my-1 d-flex flex-column position-relative">
+                        <div class="job-info d-flex justify-content-between">
+                            <h1 class="job-title">{{ job_offer.title }}</h1>
+                            <div class="job-tags d-flex flex-row position-absolute">
+                                <span class="job-tag rounded-1 p-1">{{ job_offer.jobType == 0 ? 'Stage' : 'Emploi' }}</span>
+                                <span class="job-tag rounded-1 p-1">Télétravail</span>
+                            </div>
+                        </div>
+                        <p class="job-description mt-2">{{ job_offer.description }}</p>
+                        <h4 class="job-publication d-flex flex-row align-items-end flex-column">{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{#    <table class="table">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th>Id</th>#}
+{#            <th>Title</th>#}
+{#            <th>Description</th>#}
+{#            <th>Details</th>#}
+{#            <th>JobType</th>#}
+{#            <th>PublicationDate</th>#}
+{#            <th>actions</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for job_offer in job_offers %}#}
+{#            <tr>#}
+{#                <td>{{ job_offer.id }}</td>#}
+{#                <td>{{ job_offer.title }}</td>#}
+{#                <td>{{ job_offer.description }}</td>#}
+{#                <td>{{ job_offer.details }}</td>#}
+{#                <td>{{ job_offer.jobType }}</td>#}
+{#                <td>{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</td>#}
+{#                <td>#}
+{#                    <a href="{{ path('job_offer_show', {'id': job_offer.id}) }}">show</a>#}
+{#                    <a href="{{ path('job_offer_edit', {'id': job_offer.id}) }}">edit</a>#}
+{#                </td>#}
+{#            </tr>#}
+{#        {% else %}#}
+{#            <tr>#}
+{#                <td colspan="7">no records found</td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+
+{#    <a href="{{ path('job_offer_new') }}">Create new</a>#}
 {% endblock %}
