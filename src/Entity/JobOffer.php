@@ -49,6 +49,11 @@ class JobOffer
      */
     private $AnswerRelation;
 
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $jobStyle;
+
     public function __construct()
     {
         $this->AnswerRelation = new ArrayCollection();
@@ -145,6 +150,18 @@ class JobOffer
                 $answerRelation->setJobOfferID(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getJobStyle(): ?int
+    {
+        return $this->jobStyle;
+    }
+
+    public function setJobStyle(?int $jobStyle): self
+    {
+        $this->jobStyle = $jobStyle;
 
         return $this;
     }

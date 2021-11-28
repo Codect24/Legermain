@@ -22,8 +22,10 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('js/menu', './assets/js/menu.js')
+    .addEntry('js/tabs', './assets/js/tabs.js')
 
     .addEntry('styles/jobs', './assets/styles/jobs.scss')
+    .addEntry('styles/account', './assets/styles/account.scss')
 
     .copyFiles({
         from: './assets/images',
