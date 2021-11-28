@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/account') }}
+{% endblock %}
+{% block title %}Compte{% endblock %}
+
+{% block body %}
+    {{ include('menu/menu.html.twig', {lightMode: true}) }}
+    <div class="main-content">
+        <div class="lg-account-tabs">
+            <div class="tab">
+                <button class="tablinks" onclick="showSettings(event, 'Account')" id="defaultOpen">Compte</button>
+                <button class="tablinks" onclick="showSettings(event, 'Orders')">Commandes</button>
+                <button class="tablinks" onclick="showSettings(event, 'Notifications')">Notifications</button>
+                <button class="tablinks" onclick="showSettings(event, 'Password')">Mot de Passe</button>
+            </div>
+
+            <div id="Account" class="tabcontent">
+                <form>
+
+                </form>
+            </div>
+
+            <div id="Orders" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p>
+            </div>
+
+            <div id="Notifications" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+
+            <div id="Password" class="tabcontent">
+                <h3>Password</h3>
+            </div>
+        </div>
+    </div>
+    {% block javascripts %}
+        <script>
+            function showSettings(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+
+            document.getElementById("defaultOpen").click();
+        </script>
+    {% endblock %}
+
+{% endblock %}

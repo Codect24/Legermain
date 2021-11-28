@@ -1,16 +1,19 @@
+$mainBackgroundTheme: #EDEAE6;
+$elementTheme: #C9B498;
+
 body {
-  background-color: #EDEAE6;
-  color: #EDEAE6;
+  color: $mainBackgroundTheme;
 }
 
 .main-content {
+  margin-top: 10%;
   $spacer: 12em;
   margin-left: $spacer;
   margin-right: $spacer;
 }
 
 .job-item {
-  background-color: #C9B498;
+  background-color: $elementTheme;
   border-radius: 8px;
   padding: 2em 4em 0.5em;
   box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
@@ -34,11 +37,90 @@ body {
   margin-right: 3.9em;
 }
 .job-tag {
-  border: 3px #EDEAE6 solid;
-  margin: 0 2px;
+  border: 3px $mainBackgroundTheme solid;
+  margin-left: 5px;
+  border-radius: 8px;
 }
 
 .job-publication {
   font-weight: normal;
   font-size: 1em;
+}
+
+.lg-searchBar {
+  background-color: $elementTheme;
+  border-radius: 8px;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+}
+
+.lg-searchBar-icon {
+  width: 30px;
+  height: 30px;
+  transform: scaleX(-1);
+}
+
+#jobsFilter {
+  margin-left: 20px;
+  background-color: $elementTheme;
+  color: $mainBackgroundTheme;
+  caret-color: $mainBackgroundTheme;
+  font-size: 1.3em;
+  border: none;
+  outline: none;
+}
+#jobsFilter::placeholder {
+  color: $mainBackgroundTheme;
+  font-size: 1.2em;
+}
+
+.lg-searchBar-dropDown {
+  select {
+    color: $mainBackgroundTheme;
+    font-weight: bold;
+    font-size: 1em;
+    border: 5px $elementTheme solid;
+    border-radius: 8px;
+    background-color: $elementTheme;
+    padding: 0.5em 3.5em 0.5em 1em;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  select.lg-searchBar-dropDown-tags {
+    outline: none;
+    background-image:
+            linear-gradient(45deg, transparent 50%, $mainBackgroundTheme 50%),
+            linear-gradient(135deg, $mainBackgroundTheme 50%, transparent 50%),
+            linear-gradient(to right, $mainBackgroundTheme, $mainBackgroundTheme);
+    background-position:
+            calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px),
+            calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+  }
+
+  option {
+    font-weight: bold;
+    font-size: 1em;
+  }
+}
+
+#lg-searchBar-submit {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: $mainBackgroundTheme;
+  border: 3px $mainBackgroundTheme solid;
+  border-radius: 8px;
+  background-color: $elementTheme;
+  outline: none;
+}
+
+#lg-result {
+  color: #081E0A;
+  margin-top: 50px;
 }

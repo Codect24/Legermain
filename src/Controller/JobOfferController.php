@@ -18,9 +18,7 @@ class JobOfferController extends AbstractController
     {
         if(isset($_GET['jobsFilter'])) {
             return $this->render('job_offer/index.html.twig', [
-                'job_offers' => $jobOfferRepository->findAllByTitle($_GET['jobsFilter']),
-//                'job_offers' => $jobOfferRepository->findAll(),
-
+                'job_offers' => $jobOfferRepository->findAllByTitle($_GET['jobsFilter'], $_GET['jobsFilterStyle'], $_GET['jobsFilterType']),
             ]);
         } else {
             return $this->render('job_offer/index.html.twig', [
