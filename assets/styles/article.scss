@@ -1,0 +1,46 @@
+.article {
+  margin-bottom: 1rem;
+
+  a {
+    color: black;
+    text-decoration: none;
+
+    .card {
+      background-color: #c9b498;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      .lg-article-content {
+        margin-left: 4rem;
+      }
+    }
+    .lg-article-small {
+
+      max-height: 150px;
+
+      img {
+        width: 200px;
+        height: 150px;
+      }
+   }
+    .lg-article-big {
+
+      max-height: 250px;
+
+      img {
+        width: 300px;
+        height: 250px;
+      }
+    }
+  }
+
+  .lg-date {
+    position: absolute;
+    margin-bottom: 0;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+
+
+}

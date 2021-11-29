@@ -27,7 +27,7 @@ class ArticleController2 extends AbstractController
 	public function index(ArticleRepository $articleRepository): Response
 	{
 		return $this->render('article/index2.html.twig', [
-			'articles' => $articleRepository->findBy([], ['publicationDate' => 'ASC']),
+			'articles' => $articleRepository->findBy([], ['publicationDate' => 'DESC']),
 	]);
 	}
 

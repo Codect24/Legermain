@@ -30,7 +30,7 @@ class ArticleCrudController extends AbstractCrudController
 			TextEditorField::new('content'),
 			DateField::new('publicationDate'),
 			TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
-			ImageField::new('image')->setBasePath('uploads/images/realisation')->onlyOnIndex(),
+			ImageField::new('image')->setBasePath('uploads/images/articles')->onlyOnIndex(),
 			BooleanField::new('highlighted'),
 			SlugField::new('slug')->setTargetFieldName('title')
 		];
