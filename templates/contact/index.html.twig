@@ -4,6 +4,11 @@
 
 {% block title %}Contact index{% endblock %}
 
+{%block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
 {% block head %}
     <html lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +16,14 @@
 {% endblock %}
 
 {% block body %}
-    {{ include('menu/menu.html.twig', {lightMode: false}) }}
+    <div>
+
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3" style="background-image:url({{ asset('contactimages/banc.png') }}); background-size: 100% 100%">
-                <div style="background-color: rgba(201,180,152,0.7); margin:10% 5%; padding:5%">
+                {{ include('menu/menu.html.twig', {lightMode: false}) }}
+                <div style="background-color: rgba(201,180,152,0.7); margin:20% 5% 10% 5%; padding:5% ">
                 <h2 style="margin-bottom:5%; color:rgb(237,234,230)">Un devis, une question ?</h2>
                 <p style="line-height:50px; color:rgb(237,234,230)">
                     Contactez nous par mail, ou
