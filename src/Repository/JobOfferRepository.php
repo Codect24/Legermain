@@ -19,6 +19,20 @@ class JobOfferRepository extends ServiceEntityRepository
         parent::__construct($registry, JobOffer::class);
     }
 
+//    Return a function with a matching title
+    public function findAllByTitle(string $title): array
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT j
+            FROM App\Entity\JobOffer j
+            WHERE j.title LIKE :title'
+        )->setParameters(array(
+            'title' => '%' . $title . '%'
+        ));
+        return $query->getResult();
+    }
+
     // /**
     //  * @return JobOffer[] Returns an array of JobOffer objects
     //  */

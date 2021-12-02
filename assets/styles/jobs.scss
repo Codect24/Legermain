@@ -1,0 +1,44 @@
+body {
+  background-color: #EDEAE6;
+  color: #EDEAE6;
+}
+
+.main-content {
+  $spacer: 12em;
+  margin-left: $spacer;
+  margin-right: $spacer;
+}
+
+.job-item {
+  background-color: #C9B498;
+  border-radius: 8px;
+  padding: 2em 4em 0.5em;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+}
+
+.job-title {
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.job-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.job-tags {
+  position: absolute;
+  right: 0;
+  margin-right: 3.9em;
+}
+.job-tag {
+  border: 3px #EDEAE6 solid;
+  margin: 0 2px;
+}
+
+.job-publication {
+  font-weight: normal;
+  font-size: 1em;
+}

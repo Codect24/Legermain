@@ -6,9 +6,12 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -30,12 +33,8 @@ class Article
     private $content;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $imageList;
-
-    /**
      * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $publicationDate;
 
@@ -43,12 +42,45 @@ class Article
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="relation")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $userId;
+    private $user;
 
     /**
      * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="articleId")
      */
     private $CommentsRelation;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
 
     public function __construct()
     {
@@ -60,14 +92,14 @@ class Article
         return $this->id;
     }
 
-    public function getUserID(): ?int
+    public function getUser(): ?User
     {
-        return $this->userId;
+        return $this->user;
     }
 
-    public function setUserID(int $userId): self
+    public function setUser(User $user): self
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
     }
@@ -108,12 +140,12 @@ class Article
         return $this;
     }
 
-    public function getPublicationDate(): ?\DateTimeInterface
+    public function getPublicationDate(): ?\DateTime
     {
         return $this->publicationDate;
     }
 
-    public function setPublicationDate(\DateTimeInterface $publicationDate): self
+    public function setPublicationDate(\DateTime $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
 
