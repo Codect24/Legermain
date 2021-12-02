@@ -1,8 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cart{% endblock %}
+{% block title %}Panier | Échoppe - Legermain{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/echoppe') }}
+    {{ encore_entry_link_tags('styles/panier') }}
+{% endblock %}
 
 {% block body %}
+    <div class="container-fluid ech-bandeau" style="background-image: url({{ asset('/echoppe/echoppe_bandeau.png') }})">
+        <h1><span>Legermain</span><span class="ech-title">Échoppe</span></h1>
+    </div>
     <div class="container mt-4">
         <h1>Your Cart</h1>
         {% if cart.items.count > 0 %}

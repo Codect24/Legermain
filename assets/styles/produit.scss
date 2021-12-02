@@ -1,0 +1,59 @@
+html {
+  overflow: hidden;
+  .container-fluid {
+    .row {
+      .pr-img {
+        img {
+          max-width: 100%;
+        }
+      }
+      .pr-info {
+        h2 {
+          margin-bottom: 2rem;
+        }
+
+        .pr-desc {
+          max-height: 25%;
+          overflow-y: scroll;
+          &::-webkit-scrollbar {
+            width: 7px;
+            height: 8px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: #C9B498;
+            border-radius: 3px;
+          }
+        }
+
+        .pr-connect {
+          margin-top: 4rem;
+          padding: 0.5rem;
+          border-top: solid black 1px;
+        }
+      }
+      .pr-add-cart {
+        margin-top: 3rem;
+        input {
+          background-color: #C9B498;
+          border: none;
+          text-align: center;
+          font-weight: bold;
+          &::-webkit-inner-spin-button {
+            opacity: 1;
+            color: blue;
+          }
+        }
+        .pr-button {
+          margin-top: 1.5rem;
+          text-align: center;
+          button {
+            border: none;
+            border-radius: 0.5rem;
+            background-color: #C9B498;
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
