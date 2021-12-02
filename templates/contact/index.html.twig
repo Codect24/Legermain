@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% form_theme form _self %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block head %}
+    <html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </html>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3" style="background-image:url({{ asset('contactimages/banc.png') }}); background-size: 100% 100%">
+                <div style="background-color: rgba(201,180,152,0.7); margin:10% 5%; padding:5%">
+                <h2 style="margin-bottom:5%; color:rgb(237,234,230)">Un devis, une question ?</h2>
+                <p style="line-height:50px; color:rgb(237,234,230)">
+                    Contactez nous par mail, ou
+                    téléphone, ou remplissez notre
+                    formulaire de contact.
+                    <br>
+                    Téléphone : 02 47 36 70 34
+                    <br>
+                    Mobile : 0788994455
+                    <br>
+                    infos@legermain.com
+                    <br>
+                    Vous pouvez aussi nous suivre
+                    sur les réseaux sociaux !
+
+                </p>
+                <h2 style="margin: 5% 0%; color:rgb(237,234,230)"> Retrouvez votre agence</h2>
+                <p style="line-height:50px; color:rgb(237,234,230)">
+                    <strong>ABC Legermain</strong><br>
+                    A la zone Artisanale de <br>
+                    Rouez en Champagne <br>
+                    72140
+                </p>
+                <h2 style="margin: 5% 0%; color:rgb(237,234,230)"> Horaires </h2>
+                <p style="line-height:50px; color:rgb(237,234,230)">
+                    Du lundi au vendredi <br>
+                    <strong> de 8h à 8h05 </strong><br>
+                    Le samedi <br>
+                    <strong> de 11h à 12h. </strong>
+                </p>
+                </div>
+            </div>
+            <div class="col-md-9" style="padding:5% 15%; background-color:rgb(237,234,230)">
+                <h3 style="text-align: center; color:rgb(56,68,57)">Formulaire de contact</h3>
+                {{ form_start(form) }}
+                <div>
+                    <div class="form-group" style="width:50%; float: left; padding-right: 5%" >
+                        {{ form_label(form.name, 'Nom') }}
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                    <div class="form-group" style="width:50%; float: right; padding-left: 5%">
+                        {{ form_label(form.firstname, 'Prénom') }}
+                        {{ form_widget(form.firstname) }}
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                </div>
+                {{ form_row(form.mail) }}
+                <div class="form-group">
+                    {{ form_label(form.telephone) }}
+                    {{ form_widget(form.telephone)}}
+                    {{ form_errors(form.telephone) }}
+                </div>
+                {{ form_row(form.title) }}
+                {{ form_row(form.message) }}
+                <div style="text-align: center">
+                {{ form_row(form.save) }}
+                </div>
+                {{ form_end(form) }}
+                <div style="text-align: center">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85187.13944331431!2d-0.15905599501607814!3d48.14691378779224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4809d3c8d4f3a645%3A0x7fbb5592ea0f8ee7!2sABCLEROYER!5e0!3m2!1sfr!2sfr!4v1637759612468!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <p style="text-align: center; color:rgb(112,112,112); padding-top:2%"> Nous intervenons sur les communes de Rouez, Conlie, Tennie, Parennes, Crissé et Sillé-Le-Guillaume</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
