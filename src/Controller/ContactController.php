@@ -29,7 +29,7 @@ class ContactController extends AbstractController
 			$ContactInfos = $form->getData();
 			$message = (new Email())
 				->from($ContactInfos->getMail())
-				->to('thomas.timar@hotmail.fr')
+				->to('thomas.timar@etu.univ-tours.fr')
 				->subject($ContactInfos->getTitle())
 				->text($ContactInfos->getMessage());
 

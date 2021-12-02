@@ -6,6 +6,7 @@ use App\Entity\ContactInfos;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,7 +26,7 @@ class ContactInfosType extends AbstractType
 				'constraints' => new Regex('/(0|\+33|0033)+[1-9]+[0-9]{8}/', 'Saisissez un numéro de téléphone correct.')
 				])
             ->add('title',TextType::class, ['label' => 'Titre du message'])
-            ->add('message',TextType::class, ['label' => 'Message'])
+            ->add('message',TextareaType::class, ['label' => 'Message'])
 			->add('save', SubmitType::class, ['label' => 'Envoyer'])
         ;
     }
