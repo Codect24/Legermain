@@ -98,10 +98,7 @@
         "version": "v1.0.5"
     },
     "jms/metadata": {
-        "version": "2.6.1"
-    },
-    "knplabs/knp-time-bundle": {
-        "version": "1.17.0"
+        "version": "2.5.1"
     },
     "laminas/laminas-code": {
         "version": "4.4.3"
@@ -237,8 +234,17 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
-    "swiftmailer/swiftmailer": {
-        "version": "v6.3.0"
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "9d254a22efca7264203eea98b866f16f944b2f09"
+        },
+        "files": [
+            "./public/.htaccess"
+        ]
     },
     "symfony/asset": {
         "version": "v5.3.4"
@@ -348,15 +354,6 @@
             "./src/Controller/.gitignore",
             "./src/Kernel.php"
         ]
-    },
-    "symfony/google-mailer": {
-        "version": "4.4",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.4",
-            "ref": "f8fd4ddb9b477510f8f4bce2b9c054ab428c0120"
-        }
     },
     "symfony/http-client": {
         "version": "v5.3.7"
@@ -539,20 +536,6 @@
     "symfony/string": {
         "version": "v5.3.7"
     },
-    "symfony/swiftmailer-bundle": {
-        "version": "3.5",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "2.5",
-            "ref": "f0b2fccdca2dfd97dc2fd5ad216d5e27c4f895ac"
-        },
-        "files": [
-            "./config/packages/test/swiftmailer.yaml",
-            "./config/packages/swiftmailer.yaml",
-            "./config/packages/dev/swiftmailer.yaml"
-        ]
-    },
     "symfony/translation": {
         "version": "5.3",
         "recipe": {
@@ -586,7 +569,7 @@
         ]
     },
     "symfony/uid": {
-        "version": "v5.3.10"
+        "version": "v5.3.3"
     },
     "symfony/validator": {
         "version": "4.3",
@@ -659,7 +642,7 @@
         "version": "v3.3.3"
     },
     "vich/uploader-bundle": {
-        "version": "1.7",
+        "version": "1.18",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
             "branch": "master",
