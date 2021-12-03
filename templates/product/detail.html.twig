@@ -1,33 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ product.name }}{% endblock %}
+{% block title %}{{ product.name }} | Échoppe - Legermain{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/echoppe') }}
+    {{ encore_entry_link_tags('styles/produit') }}
+{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row mt-3 mb-4">
-            <div class="col-md-4">
-                <img src="/produits/{{ product.file }}" alt="{{ product.name }}" class="img-fluid">
+    <a href="{{ path('echoppe_index') }}">
+        <div class="container-fluid ech-bandeau" style="background-image: url({{ asset('/echoppe/echoppe_bandeau.png') }})">
+            <h1><span>Legermain</span><span class="ech-title">Échoppe</span></h1>
+        </div>
+    </a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 pr-img">
+                <img src="{% if(product.file is not null) %}{{ vich_uploader_asset(product, 'imageFile') }}{% else %}/produits/0.png{% endif %}" alt="{{ product.name }}">
             </div>
-            <div class="col-md-8">
-                <h1 class="mt-4 mt-md-0">{{ product.name }}</h1>
-                <h2>{{ product.price }} €</h2>
-                <hr>
-                <b>Description: </b>{{ product.description }}
-                {{ form_start(form, {'attr': {'class': 'mt-4 p-4 bg-light'}}) }}
-                <div class="form-group">
-                    {{ form_label(form.quantity) }}
-                    {{ form_widget(form.quantity, {
-                        'attr': {
-                            'class': 'form-control ' ~ (form.quantity.vars.valid ? '' : 'is-invalid')
-                        }
-                    }) }}
-                    <div class="invalid-feedback">
-                        {{ form_errors(form.quantity) }}
+            <div class="col-6 pr-info">
+                <h1>{{ product.name }}</h1>
+                <h2>Prix : {{ product.price}} €</h2>
+                <p class="pr-desc">{{ product.description }}</p>
+                {% if app.user %}
+                    <div class="pr-add-cart">
+                        {{ form_start(form) }}
+                        <div class="form-group pr-quantity">
+                            {{ form_label(form.quantity) }}
+                            {{ form_widget(form.quantity, {'attr' : {'class' : 'form-control'~(form.quantity.vars.valid ? '' : 'is-invalid')}}) }}
+                        </div>
+                        <div class="form-group pr-button">
+                            {{ form_widget(form.add) }}
+                        </div>
+                        {{ form_end(form) }}
                     </div>
-                </div>
-                {{ form_widget(form.add, {'attr': {'class': 'btn btn-warning w-25'}}) }}
-                {{ form_end(form) }}
-                <a href="{{ path('echoppe_index') }}">product list</a>
+                {% else %}
+                    <p class="pr-connect"><a href="{{ path('app_login') }}">Connectez vous</a> pour commander ce produit !</p>
+                {% endif %}
             </div>
         </div>
     </div>

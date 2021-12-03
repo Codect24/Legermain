@@ -1,33 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Échoppe - Legermain{% endblock %}
+{% block title %} Échoppe - Legermain {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/echoppe') }}
+{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1 class="mt-3 mb-4">Legermain | Échoppe</h1>
-        <a href="{{ path('cart') }}" class="btn btn-light">Cart</a>
-
-        {{ form(form) }}
+    <a href="{{ path('echoppe_index') }}">
+        <div class="container-fluid ech-bandeau" style="background-image: url({{ asset('/echoppe/echoppe_bandeau.png') }})">
+            <h1><span>Legermain</span><span class="ech-title">Échoppe</span></h1>
+        </div>
+    </a>
+    <div class="container-fluid">
         <div class="row">
-            {% for product in produits %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        {% if(product.file is not null) %}
-                            <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.name }}" class="card-img-top">
-                        {% else %}
-                            <img src="https://via.placeholder.com/200x150" alt="{{ product.name }}" class="card-img-top">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text">{{ product.description }}</p>
-                            <div class="d-flex justify-content-between align-item-center">
-                                <a href="{{ path('product_detail', {id: product.id}) }}" class="btn btn-dark">View details</a>
-                                <span class="h5 mt-auto">{{ product.price }} €</span>
-                            </div>
+            <div class="col-2 ech-filtre">
+                <div class="ech-panier">
+                    <a href="{{ path('cart') }}">Panier</a>
+                </div>
+                {{ form_start(form) }}
+                <div class="form-group ech-filtre-tri">
+                    {{ form_label(form.filtre, 'Trier par :') }}
+                    {{ form_widget(form.filtre) }}
+                    {{ form_errors(form.filtre) }}
+                </div>
+                <div class="ech-filtre-center">
+                    <div class="form-group ech-filtre-cat">
+                        <div class="ech-filtre-cat-title">
+                            {{ form_label(form.categories, 'Catégories') }}
                         </div>
+                        {{ form_widget(form.categories) }}
+                        {{ form_errors(form.categories) }}
+                    </div>
+                    <div class="form-group ech-filtre-val">
+                        {{ form_label(form.submit) }}
+                        {{ form_widget(form.submit) }}
                     </div>
                 </div>
-            {% endfor %}
+                {{ form_end(form) }}
+            </div>
+            <div class="col-10 ech-products">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-4">
+                            <div class="card mb-4">
+                                {% if(product.file is not null) %}
+                                    <img src="{{ vich_uploader_asset(product, 'imageFile') }}" class="card-img-top" alt="{{ product.name }}">
+                                {% else %}
+                                    <img src="/produits/0.png" class="card-img-top" alt="Image non disponible">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h2 class="card-title">{{ product.name }}</h2>
+                                    <!--
+                                    <p class="card-text">{{ product.description }}</p>
+-->
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{{ path('product_detail', {id: product.id}) }}" class="btn">Voir plus</a>
+                                        <span class="mt-auto">{{ product.price }} €</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

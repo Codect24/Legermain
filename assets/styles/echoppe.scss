@@ -2,32 +2,33 @@
 
 body {
   background-color: #EDEAE6;
+  a {
+    text-decoration: none;
+    .ech-bandeau {
+      padding: 0;
+      margin-bottom: 1rem;
+      background-color: saddlebrown;
+      background-size: 100%;
+      background-repeat: no-repeat;
 
-  .ech-bandeau {
-    padding: 0;
-    margin-bottom: 1rem;
-    background-color: saddlebrown;
-    background-size: 100%;
-    background-repeat: no-repeat;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      h1 {
+        color: white;
+        font-size: 4rem;
+        text-align: center;
+        padding: 5rem 0;
+        margin: 0;
 
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    h1 {
-      color: white;
-      font-size: 4rem;
-      text-align: center;
-      padding: 5rem 0;
-      margin: 0;
-
-      .ech-title {
-        border-left: solid white 2px;
-        padding-left: 0.5rem;
-        margin-left: 0.5rem;
+        .ech-title {
+          border-left: solid white 2px;
+          padding-left: 0.5rem;
+          margin-left: 0.5rem;
+        }
       }
     }
   }
-
   .container-fluid {
     .row {
       .ech-panier {

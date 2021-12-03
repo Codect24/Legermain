@@ -14,7 +14,7 @@ class AddToCartType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('quantity', IntegerType::class, ['label' => 'Quantité :' ,'attr' => ['value' => 1], 'empty_data' => 1])
+            ->add('quantity', IntegerType::class, ['label' => 'Quantité :' ,'attr' => ['value' => 1, 'min' => 1], 'empty_data' => 1])
 			->add('add', SubmitType::class, ['label' => 'Ajouter au panier'])
         ;
     }
