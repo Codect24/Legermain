@@ -1,0 +1,124 @@
+@use "sass:math";
+
+body {
+  background-color: #EDEAE6;
+  a {
+    text-decoration: none;
+    .ech-bandeau {
+      padding: 0;
+      margin-bottom: 1rem;
+      background-color: saddlebrown;
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      h1 {
+        color: white;
+        font-size: 4rem;
+        text-align: center;
+        padding: 5rem 0;
+        margin: 0;
+
+        .ech-title {
+          border-left: solid white 2px;
+          padding-left: 0.5rem;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+  .container-fluid {
+    .row {
+      .ech-panier {
+        text-align: center;
+        margin-top: 1rem;
+        a {
+          text-decoration: none;
+          color: white;
+          padding: 0.5rem 3rem;
+          width: inherit;
+          background-color: #9F5B3D;
+          border-radius: 1rem;
+        }
+
+      }
+      .ech-filtre {
+        position: fixed;
+        z-index: 1;
+        .ech-filtre-tri {
+          margin-top: 1rem;
+          select {
+            background-color: #C9B498;
+            border-radius: 0.5rem;
+          }
+        }
+        .ech-filtre-center {
+          text-align: center;
+          .ech-filtre-cat {
+
+            .ech-filtre-cat-title {
+
+              label {
+              font-size: 1.5rem;
+              font-weight: bold;
+                padding-bottom: 0.25rem;
+                margin: 1.5rem 0 0.5rem 0;
+                border-bottom: solid 1px black;
+              }
+            }
+
+            input {
+              display: none;
+            }
+            input + label:hover {
+              background-color: #C9B498;
+            }
+            input + label {
+              cursor: pointer;
+              border-radius: 1rem;
+              width: 100%;
+              padding: 0.75rem;
+              margin: 0.5rem 0;
+            }
+            input:checked + label {
+              background-color: #C9B498;
+            }
+          }
+          .ech-filtre-val {
+            button {
+              background-color: #9F5B3D;
+              border-radius: 0.5rem;
+              padding: 0.25rem 2rem;
+              box-shadow: none;
+              border: none;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ech-products {
+    margin-left: math.div(2, 12)*100%;
+  }
+  .card {
+    background-color: #C9B498;
+    .card-body {
+      h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .btn {
+        background-color: #9F5B3D;
+        color: white;
+      }
+      span {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+}

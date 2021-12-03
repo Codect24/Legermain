@@ -24,7 +24,7 @@ class ProduitFixtures extends Fixture
 
 			if ($filesystem->exists('D:\wamp64\www\Legermain\public\produits\\'.$i.'.png'))
 			{
-				$product->setVisualSrc($i.'.png');
+				$product->setFile($i.'.png');
 			}
 			$manager->persist($product);
 		}

@@ -28,7 +28,7 @@ class EchoppeController extends AbstractController
 			}
 		}
 
-		return $this->render('echoppe/index2.html.twig', [
+		return $this->render('echoppe/index.html.twig', [
 				'products' => $produitRepository->findBy($categorie, [$orderBy[0] => $orderBy[1]]),
 				'form' => $form->createView()
 			]);

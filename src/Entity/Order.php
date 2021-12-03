@@ -42,6 +42,12 @@ class Order
      */
     private $dateUpdate;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -95,23 +101,23 @@ class Order
 	 * @return $this
 	 */
 	public  function removeItems(): self
-	{
-		foreach ($this->getItems() as $item)
-		{
-			$this->removeItem($item);
-		}
-		return $this;
-	}
+         	{
+         		foreach ($this->getItems() as $item)
+         		{
+         			$this->removeItem($item);
+         		}
+         		return $this;
+         	}
 
 	public function getTotal(): float
-	{
-		$total = 0;
-		foreach ($this->getItems() as $item)
-		{
-			$total += $item->getTotal();
-		}
-		return $total;
-	}
+         	{
+         		$total = 0;
+         		foreach ($this->getItems() as $item)
+         		{
+         			$total += $item->getTotal();
+         		}
+         		return $total;
+         	}
 
     public function getStatus(): ?string
     {
@@ -145,6 +151,18 @@ class Order
     public function setDateUpdate(\DateTimeInterface $dateUpdate): self
     {
         $this->dateUpdate = $dateUpdate;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
