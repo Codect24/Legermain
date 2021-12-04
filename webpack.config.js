@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('styles/echoppe', './assets/styles/echoppe.scss')
+    .addEntry('styles/dashboard', './assets/styles/dashboard.scss')
     .addEntry('styles/produit', './assets/styles/produit.scss')
     .addEntry('styles/panier', './assets/styles/panier.scss')
     .addEntry('styles/article', './assets/styles/article.scss')
@@ -39,6 +40,8 @@ Encore
         from: './assets/styles/fonts',
         to: 'fonts/[path][name].[ext]',
     })
+    .addEntry('styles/realisation', './assets/styles/realisation.scss')
+    .addEntry('js/realisation', './assets/js/realisation.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

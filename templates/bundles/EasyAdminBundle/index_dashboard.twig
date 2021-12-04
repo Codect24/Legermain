@@ -1,0 +1,19 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title 'Administration de Legermain' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('styles/dashboard') }}
+{% endblock %}
+
+{% block main %}
+    <style>
+        p { max-width: 600px; }
+    </style>
+
+    <p>
+        <strong>Supervision du site : WIP</strong>
+    </p>
+
+{% endblock %}

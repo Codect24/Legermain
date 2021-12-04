@@ -48,17 +48,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $custumerRequestRelation;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\OneToMany(targetEntity=Realisation::class, mappedBy="userID")
      */
-    private $prenom;
+    private $categorie;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $telephone;
 
@@ -66,6 +71,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->relation = new ArrayCollection();
         $this->custumerRequestRelation = new ArrayCollection();
+        $this->categorie = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -169,7 +175,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->relation->contains($relation)) {
             $this->relation[] = $relation;
-            $relation->setUser($this);
+            $relation->setUserId($this);
         }
 
         return $this;
@@ -179,8 +185,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->relation->removeElement($relation)) {
             // set the owning side to null (unless already changed)
-            if ($relation->getUser() === $this) {
-                $relation->setUser(null);
+            if ($relation->getUserId() === $this) {
+                $relation->setUserId(null);
             }
         }
 
@@ -217,14 +223,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPrenom(): ?string
+    /**
+     * @return Collection|Realisation[]
+     */
+    public function getCategorie(): Collection
     {
-        return $this->prenom;
+        return $this->categorie;
     }
 
-    public function setPrenom(string $prenom): self
+    public function addCategorie(Realisation $categorie): self
     {
-        $this->prenom = $prenom;
+        if (!$this->categorie->contains($categorie)) {
+            $this->categorie[] = $categorie;
+            $categorie->setUserID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategorie(Realisation $categorie): self
+    {
+        if ($this->categorie->removeElement($categorie)) {
+            // set the owning side to null (unless already changed)
+            if ($categorie->getUserID() === $this) {
+                $categorie->setUserID(null);
+            }
+        }
 
         return $this;
     }
@@ -241,12 +265,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getTelephone(): ?string
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?int
     {
         return $this->telephone;
     }
 
-    public function setTelephone(string $telephone): self
+    public function setTelephone(?int $telephone): self
     {
         $this->telephone = $telephone;
 

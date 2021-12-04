@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Realisation index{% endblock %}
+
+{% block body %}
+    {% for realisation in realisations %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="carousel slide" id="carousel-300516">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" alt="" src="../uploads/images/realisation/{{ realisation.image }}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8 text-center lead">
+                        <h2>
+                            {{ realisation.title }}
+                        </h2>
+                        <p>
+                            {% if realisation.description | split(' ')[5] is defined %}
+                                {{ realisation.description | split(' ')[5] ~ '...' | raw }}
+                            {% else %}
+                                {{ realisation.description|raw }}
+                            {% endif %}
+                        </p>
+
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
