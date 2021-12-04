@@ -2,6 +2,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\Realisation;
 use DateTime;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -10,31 +11,36 @@ use App\Entity\Article;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
-    private $security;
+	private $security;
 
-    public function __construct(Security $security)
-    {
-        $this->security = $security;
-    }
+	public function __construct(Security $security)
+	{
+		$this->security = $security;
+	}
 
-    public static function getSubscribedEvents()
-    {
-        return [
-            BeforeEntityPersistedEvent::class => ['setDateAndUser'],
-        ];
-    }
+	public static function getSubscribedEvents()
+	{
+		return [
+			BeforeEntityPersistedEvent::class => ['setDateAndUser'],
+		];
+	}
 
-    public function setDateAndUser(BeforeEntityPersistedEvent $event)
-    {
-        $entity = $event->getEntityInstance();
+	public function setDateAndUser(BeforeEntityPersistedEvent $event)
+	{
+		$entity = $event->getEntityInstance();
 
-        if (($entity instanceof Article)) {
-            $now = new DateTime('now');
-            $entity->setPublicationDate($now);
-            $user = $this->security->getUser();
-            $entity->setUser($user);
-            return;
-        }
-        return;
-    }
+		if ($entity instanceof Realisation) {
+			$now = new DateTime('now');
+			$entity->setPublicationDate($now);
+			$user = $this->security->getUser();
+			$entity->setUserID($user);
+			return;
+		}
+		if ($entity instanceof Article) {
+			$now = new DateTime('now');
+			$entity->setPublicationDate($now);
+			$user = $this->security->getUser();
+			$entity->setUser($user);
+		}
+	}
 }

@@ -24,6 +24,8 @@ Encore
     .addEntry('styles/echoppe', './assets/styles/echoppe.scss')
     .addEntry('styles/produit', './assets/styles/produit.scss')
     .addEntry('styles/panier', './assets/styles/panier.scss')
+    .addEntry('styles/article', './assets/styles/article.scss')
+    .addEntry('styles/article_show', './assets/styles/article_show.scss')
     .addEntry('js/menu', './assets/js/menu.js')
 
     .addEntry('styles/jobs', './assets/styles/jobs.scss')
