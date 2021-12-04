@@ -22,7 +22,13 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        return $this->render('bundles/EasyAdminBundle/index_dashboard.twig');
+        $accounts = $this->getDoctrine()->getRepository(User::class)->count([]);
+        $articles = $this->getDoctrine()->getRepository(Article::class)->count([]);
+
+        return $this->render('bundles/EasyAdminBundle/index_dashboard.twig', [
+            'accounts' => $accounts,
+            'articles' => $articles,
+        ]);
     }
     public function configureAssets(): Assets
     {
@@ -31,26 +37,11 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            // the name visible to end users
             ->setTitle('Administration Legermain.')
-            // you can include HTML contents too (e.g. to link to an image)
             ->setTitle('Legermain')
-
-            // the path defined in this method is passed to the Twig asset() function
             ->setFaviconPath('favicon.svg')
-
-            // set this option if you prefer the page content to span the entire
-            // browser width, instead of the default design which sets a max width
             ->renderContentMaximized()
-
-            // by default, all backend URLs include a signature hash. If a user changes any
-            // query parameter (to "hack" the backend) the signature won't match and EasyAdmin
-            // triggers an error. If this causes any issue in your backend, call this method
-            // to disable this feature and remove all URL signature checks
             ->disableUrlSignatures()
-
-            // by default, all backend URLs are generated as absolute URLs. If you
-            // need to generate relative URLs instead, call this method
             ->generateRelativeUrls()
             ;
     }
@@ -60,7 +51,6 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::section('Utilisateurs'),
             MenuItem::linkToCrud('Membres', 'fa fa-users', User::class),
-            MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
             MenuItem::linkToCrud('Commentaires', 'fa fa-comments', Comments::class),
             MenuItem::section('Emploi'),
             MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
