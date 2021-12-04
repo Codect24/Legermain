@@ -42,7 +42,7 @@ class InscriptionType extends AbstractType
                 'label'=> 'Adresse e-mail :',
 
                 'first_options'=>[ 'label'=>'Adresse e-mail :'],
-                'second_options' => ['label' => 'Confirmation daddresse e-mail :']
+                'second_options' => ['label' => 'Confirmation addresse e-mail :']
             ])
             ->add('telephone',TextType::class,[
                 'label' =>'Telephone :'
@@ -51,6 +51,7 @@ class InscriptionType extends AbstractType
                 'attr' => ['class' => 'btn btn-success'],
             ]);
     }
+
 
     public function configureOptions(OptionsResolver $resolver)
     {

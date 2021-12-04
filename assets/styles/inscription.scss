@@ -1,0 +1,191 @@
+#corps{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.formulaire {
+  width: 500px;
+  margin-top: 80px;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #EDEAE6;
+  border-radius: 10px;
+  padding: 30px 60px 30px 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: gray;
+
+  h1{
+    color: black;
+  }
+
+}
+#submit{
+  margin-top: 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
+#inscription_Envoyer{
+  border-radius: 20px;
+  background-color: #C9B498;
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+
+#inscription_prenom{
+  border-radius: 5px;
+  background-color: #C9B498;
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+#inscription_password_first{
+  border-radius: 5px;
+  background-color: #C9B498;
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+#inscription_password_second{
+  border-radius: 5px;
+  background-color: #C9B498;
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+#inscription_email_first{
+  border-radius: 5px;
+  background-color: #C9B498;
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+#inscription_email_second{
+  border-radius: 5px;
+  background-color: #C9B498;
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+#inscription_nom{
+  border-radius: 5px;
+  background-color: #C9B498;
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+#inscription_telephone{
+  border-radius: 5px;
+  background-color: #C9B498;
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+.btn-success {
+  color: #fff;
+  background-color: #C9B498;
+  border-color: transparent;
+}
+
+
+.cercle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: solid white 3px;
+  padding-top: 9px;
+  padding-left: 17px;
+  margin:auto;
+
+  #triangleDroite {
+    width: 0;
+    height: 0;
+
+
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 30px solid white;
+  }
+}
+.cercle:hover{
+  background-color: white;
+
+  #triangleDroite{
+    border-left-color: black;
+  }
+}
+.bouton{
+  margin-right: 15%;
+  margin-left: 10%;
+}
+
+.ligne{
+  padding:0;
+  background-color:white;
+  border-radius: 20px;
+  display: inline-block;
+  height: 500px;
+  width: 5px;
+  margin: 0 20px ;
+}
+
+body{
+  background: url('../images/inscription.png') no-repeat;
+  background-size: 100% auto;
+}
+h1{
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-bottom: 20px;
+}
+.formulaire:focus{
+  background-color: #C9B498;
+}
+
+@media all and (max-width: 1650px) {
+  .ligne{
+    display: none;
+  }
+  #corps{
+
+
+    flex-direction: column-reverse;
+  }
+  .formulaire{
+    display: flex;
+    
+  }
+  .bouton{
+    margin: 10px 10px 0 0;
+    display:flex;
+    flex-direction: row;
+    align-self:flex-end;
+
+    h1{
+      height: 100%;
+      font-size: 1.25em;
+      margin: auto 1em auto auto;
+    }
+
+
+
+  }
+  body{
+    background-size:auto 100% ;
+  }
+  .formulaire{
+    margin:0;
+    background: none;
+    form{
+      color: white;
+    }
+    h1{
+      color: white;
+    }
+  }
+
+
+
+}
+
+
+
+
+

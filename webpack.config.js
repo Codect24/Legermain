@@ -27,7 +27,7 @@ Encore
     .addEntry('styles/article', './assets/styles/article.scss')
     .addEntry('styles/article_show', './assets/styles/article_show.scss')
     .addEntry('js/menu', './assets/js/menu.js')
-
+    .addEntry('styles/inscription','./assets/styles/inscription.scss')
     .addEntry('styles/jobs', './assets/styles/jobs.scss')
 
     .copyFiles({
