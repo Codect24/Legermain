@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Connexion{% endblock %}
-
+{{ include('menu/menu.html.twig', {lightMode: false}) }}
 {% block body %}
 <form method="post">
     {% if error %}
