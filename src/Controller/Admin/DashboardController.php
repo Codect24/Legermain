@@ -63,7 +63,9 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Catégories', 'fa fa-bookmark', ProduitCategorie::class),
             MenuItem::section('Contenu'),
             MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
-            MenuItem::linkToCrud('Réalisations', 'fa fa-wrench', Realisation::class)
+            MenuItem::linkToCrud('Réalisations', 'fa fa-wrench', Realisation::class),
+            MenuItem::section('Autre'),
+            MenuItem::linkToRoute('Legermain', 'fa fa-sign-out-alt','home')
         ];
     }
 
