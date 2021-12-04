@@ -35,8 +35,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('Emploi'),
             MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
 			MenuItem::section('Échoppe'),
-			MenuItem::linkToCrud('Produits', 'fa fa-product', Produit::class),
-			MenuItem::linkToCrud('Catégories', 'fa fa-product', ProduitCategorie::class),
+			MenuItem::linkToCrud('Produits', 'fa fa-box', Produit::class),
+			MenuItem::linkToCrud('Catégories', 'fa fa-boxes', ProduitCategorie::class),
         ];
     }
 }
