@@ -24,10 +24,14 @@ class DashboardController extends AbstractDashboardController
     {
         $accounts = $this->getDoctrine()->getRepository(User::class)->count([]);
         $articles = $this->getDoctrine()->getRepository(Article::class)->count([]);
+        $realisations = $this->getDoctrine()->getRepository(Realisation::class)->count([]);
+        $commentaires = $this->getDoctrine()->getRepository(Comments::class)->count([]);
 
         return $this->render('bundles/EasyAdminBundle/index_dashboard.twig', [
             'accounts' => $accounts,
             'articles' => $articles,
+            'realisations' => $realisations,
+            'commentaires' => $commentaires,
         ]);
     }
     public function configureAssets(): Assets
@@ -54,9 +58,9 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Commentaires', 'fa fa-comments', Comments::class),
             MenuItem::section('Emploi'),
             MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
-			MenuItem::section('Échoppe'),
-			MenuItem::linkToCrud('Produits', 'fa fa-cart-plus', Produit::class),
-			MenuItem::linkToCrud('Catégories', 'fa fa-bookmark', ProduitCategorie::class),
+            MenuItem::section('Échoppe'),
+            MenuItem::linkToCrud('Produits', 'fa fa-cart-plus', Produit::class),
+            MenuItem::linkToCrud('Catégories', 'fa fa-bookmark', ProduitCategorie::class),
             MenuItem::section('Contenu'),
             MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
             MenuItem::linkToCrud('Réalisations', 'fa fa-wrench', Realisation::class)

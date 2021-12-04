@@ -3,7 +3,22 @@
   border-color: #d9cabe;
   color: #fff;
 }
-
+.job-item {
+  background-color: #D6C9B8;
+  border-radius: 8px;
+  padding: 2em;
+  margin: 5em;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+}
+.card-header,.card-footer{
+  background-color: #C9B498;
+}
+.row{
+  margin-top: 2em;
+}
+.card-body{
+  background-color: #D6C9B8;
+}
 :root{
 --black: #000;
 --white: #fff;
