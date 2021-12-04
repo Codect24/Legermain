@@ -6,6 +6,7 @@
 parameters:
     article_images: /uploads/images/articles
     realisation_images: /uploads/images/realisation
+    produit_images: /produits
 
 services:
     # default configuration for services in *this* file

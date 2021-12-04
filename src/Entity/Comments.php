@@ -16,11 +16,7 @@ class Comments
      * @ORM\Column(type="integer")
      */
     private $id;
-    
-    /**
-     * @ORM\Column(type="smallint")
-     */
-    private $userId;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -41,33 +37,27 @@ class Comments
      * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="CommentsRelation")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $articleId;
+    private $article;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getArticleId(): ?int
+    public function getArticle(): ?Article
     {
-        return $this->articleId;
+        return $this->article;
     }
 
-    public function setArticleId(int $articleId): self
+    public function setArticle(Article $article): self
     {
-        $articleId->articleID = $articleId;
-
-        return $articleId;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(int $userId): self
-    {
-        $this->userId = $userId;
+        $this->article = $article;
 
         return $this;
     }
@@ -103,6 +93,18 @@ class Comments
     public function setPublicationDate(\DateTimeInterface $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -1,0 +1,106 @@
+html {
+  body {
+    background-color: #EDEAE6;
+    .container {
+      .alert {
+        background-color: #C9B498;
+        border: #9F5B3D 1px solid;
+        a {
+          font-weight: bold;
+          color: black;
+        }
+      }
+      .row {
+        .col-8 {
+          .card {
+            background-color: #9F5B3D;
+            .card-header {
+              color: white;
+              justify-content: center;
+              div {
+                .crt-save {
+                  background-color: #C9B498;
+                  margin-right: 7rem;
+                  font-weight: bold;
+                }
+                .crt-clear {
+                  background-color: #C9B498;
+                  margin-left: 7rem;
+                  font-weight: bold;
+                }
+              }
+            }
+            ul {
+              background-color: #EDEAE6;
+              li:last-child {
+                border: none;
+              }
+              li {
+                border-bottom: solid 1px #9F5B3D;
+                background-color: transparent;
+                img {
+                  width: 128px;
+                }
+                div {
+                  &:first-child {
+                    align-self: center;
+                    text-align: center;
+                  }
+                  &:last-child {
+                    text-align: center;
+                  }
+                  .crt-qte {
+
+                  }
+                  input {
+                    background-color: #C9B498;
+                    margin-bottom: 0.5rem;
+                    &::-webkit-inner-spin-button {
+                      opacity: 1;
+                    }
+                  }
+                  button {
+                    background-color: #9F5B3D;
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .col-4 {
+          position: fixed;
+          right: 2rem;
+
+          .card {
+            border: solid 2px #9F5B3D;
+            background-color: #9F5B3D;
+            .card-header {
+              color: white;
+            }
+            ul {
+              border-bottom-color: #9F5B3D;
+              li {
+                background-color: #EDEAE6;
+              }
+            }
+            .card-body {
+              background-color: #EDEAE6;
+              a {
+                width: 100%;
+                background-color: #9F5B3D;
+              }
+            }
+          }
+          .crt-retour {
+            background-color: #C9B498;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 1rem 1rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
