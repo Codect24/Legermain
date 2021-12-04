@@ -29,15 +29,15 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::section('Utilisateurs'),
             MenuItem::linkToCrud('Membres', 'fa fa-users', User::class),
-            MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
             MenuItem::linkToCrud('Commentaires', 'fa fa-comments', Comments::class),
             MenuItem::section('Emploi'),
             MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
 			MenuItem::section('Échoppe'),
 			MenuItem::linkToCrud('Produits', 'fa fa-product', Produit::class),
 			MenuItem::linkToCrud('Catégories', 'fa fa-product', ProduitCategorie::class),
-            MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
             MenuItem::section('Contenu'),
+            MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
+            MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
             MenuItem::linkToCrud('Réalisations', 'fa fa-wrench', Realisation::class)
         ];
     }
