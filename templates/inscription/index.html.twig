@@ -1,15 +1,38 @@
 {% extends 'base.html.twig' %}
-
+{% form_theme form _self %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 {% block title %}Inscription!{% endblock %}
 
 {% block body %}
     {{ include('menu/menu.html.twig', {lightMode: false}) }}
     {% block content %}
         <h1>Inscription</h1>
-        <div class="form">
+       {#  <div class="form">
             {{ form(form) }}
         </div>
+       #}
+        {{ form_start(form) }}
+        <div>
+            <div class="form-group"  >
+                {{ form_label(form.nom) }}
+                {{ form_widget(form.nom) }}
+                {{ form_errors(form.nom) }}
+            </div>
+            <div class="form-group" >
+                {{ form_label(form.prenom) }}
+                {{ form_widget(form.prenom) }}
+                {{ form_errors(form.prenom) }}
+            </div>
+        </div>
+        {{ form_row(form.email) }}
+        <div class="form-group">
+            {{ form_label(form.telephone) }}
+            {{ form_widget(form.telephone)}}
+            {{ form_errors(form.telephone) }}
+        </div>
 
+
+        {{ form_end(form) }}
         <div class="ligneVerticale">
             {#
             css pour la ligne vertical
