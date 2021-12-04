@@ -6,9 +6,9 @@
     {{ encore_entry_link_tags('styles/article') }}
 {% endblock %}
 {% block body %}
+    {{ include('menu/menu.html.twig', {lightMode: true}) }}
     <div class="container-fluid">
-        <h1 class="align-content-center">Articles</h1>
-
+        <h1>Articles</h1>
         <div class="row">
             {% for article in articles %}
                 <div class="col-12 article">
