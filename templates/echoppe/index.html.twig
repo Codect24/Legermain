@@ -60,7 +60,7 @@
 -->
                                     <div class="d-flex justify-content-between">
                                         <a href="{{ path('product_detail', {id: product.id}) }}" class="btn">Voir plus</a>
-                                        <span class="mt-auto">{{ product.price }} €</span>
+                                        <span class="mt-auto">{{ product.price / 100 }} €</span>
                                     </div>
                                 </div>
                             </div>

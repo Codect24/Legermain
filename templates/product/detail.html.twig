@@ -24,7 +24,7 @@
             </div>
             <div class="col-6 pr-info">
                 <h1>{{ product.name }}</h1>
-                <h2>Prix : {{ product.price}} €</h2>
+                <h2>Prix : {{ product.price / 100 }} €</h2>
                 <p class="pr-desc">{{ product.description }}</p>
                 {% if app.user %}
                     <div class="pr-add-cart">
