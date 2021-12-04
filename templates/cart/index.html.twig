@@ -14,6 +14,9 @@
             <h1><span>Legermain</span><span class="ech-title">Échoppe</span></h1>
         </div>
     </a>
+    <a href="{{ path('home') }}">
+        <img class="ech-logo" src="{{ asset('build/images/logo.png') }}" alt="Logo Legermain">
+    </a>
     <div class="container">
         <h1>Panier</h1>
         {% if cart.items.count > 0 %}

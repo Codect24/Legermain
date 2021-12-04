@@ -1,7 +1,15 @@
 @use "sass:math";
 
 body {
+  height: auto;
   background-color: #EDEAE6;
+  .ech-logo {
+    width: 10rem;
+    position: fixed;
+    top: 2.5rem;
+    left: 5rem;
+    z-index: 2;
+  }
   a {
     text-decoration: none;
     .ech-bandeau {

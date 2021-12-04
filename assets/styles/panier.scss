@@ -2,6 +2,14 @@ html {
   body {
     background-color: #EDEAE6;
     .container {
+      .alert {
+        background-color: #C9B498;
+        border: #9F5B3D 1px solid;
+        a {
+          font-weight: bold;
+          color: black;
+        }
+      }
       .row {
         .col-8 {
           .card {
