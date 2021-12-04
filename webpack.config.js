@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('styles/echoppe', './assets/styles/echoppe.scss')
+    .addEntry('styles/dashboard', './assets/styles/dashboard.scss')
     .addEntry('styles/produit', './assets/styles/produit.scss')
     .addEntry('styles/panier', './assets/styles/panier.scss')
     .addEntry('styles/article', './assets/styles/article.scss')
