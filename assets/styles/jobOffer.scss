@@ -1,0 +1,108 @@
+$mainBackgroundTheme: #EDEAE6;
+$elementTheme: #C9B498;
+$externTheme: #081E0A;
+
+body {
+  color: $externTheme;
+}
+
+.main-content {
+  margin-top: 10%;
+  $spacer: 10em;
+  margin-left: $spacer;
+  margin-right: $spacer;
+}
+
+.lg-jobOffer-head-firstLetter {
+  background-color: $elementTheme;
+  $size: 9em;
+  height: $size;
+  width: $size;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+  h1 {
+    color: white;
+    font-weight: bolder;
+    font-size: 7em;
+  }
+}
+
+.lg-jobOffer-head-content {
+  h1 {
+
+  }
+  h2 {
+    font-weight: lighter;
+  }
+
+  .job-tags {
+    margin-right: 3.9em;
+  }
+  .job-tag {
+    border: 3px $externTheme solid;
+    margin-left: 5px;
+    border-radius: 8px;
+  }
+}
+
+.lg-jobOffer-content {
+  h1 {
+    font-weight: bolder;
+    font-size: 1.75em;
+  }
+  p {
+    font-size: 1em;
+  }
+}
+
+.lg-jobOffer-button {
+  background-color: $elementTheme;
+  font-weight: bold;
+  color: $mainBackgroundTheme;
+  border-radius: 8px;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+  border: none;
+  padding: 14px;
+}
+
+
+.lg-answerOffer {
+  label {
+    color: #081E0A;
+    font-weight: 500;
+    text-shadow: 0.30px 0.30px 0.30px #707070;
+  }
+
+  input {
+    background-color: $elementTheme;
+    font-weight: bold;
+    color: $mainBackgroundTheme;
+    border-radius: 8px;
+    box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+    border: none;
+    outline: none;
+    padding: 8px 14px;
+  }
+
+  .lg-answerOffer-updateFiles {
+    input[type="file"] {
+      margin-right: 12px;
+
+    }
+    a {
+      display: none;
+    }
+  }
+}
+
+.lg-answerOffer-textArea {
+  background-color: $elementTheme;
+  font-weight: bold;
+  color: $mainBackgroundTheme;
+  border-radius: 8px;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+}

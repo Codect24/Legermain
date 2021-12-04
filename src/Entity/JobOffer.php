@@ -19,6 +19,11 @@ class JobOffer
      */
     private $id;
 
+    public function __toString(): string
+    {
+        return $this->getDescription();
+    }
+
     /**
      * @ORM\Column(type="string", length=50)
      */
@@ -50,7 +55,7 @@ class JobOffer
     private $AnswerRelation;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
+     * @ORM\Column(type="smallint")
      */
     private $jobStyle;
 
@@ -159,7 +164,7 @@ class JobOffer
         return $this->jobStyle;
     }
 
-    public function setJobStyle(?int $jobStyle): self
+    public function setJobStyle(int $jobStyle): self
     {
         $this->jobStyle = $jobStyle;
 

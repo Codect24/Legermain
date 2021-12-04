@@ -29,19 +29,21 @@
         <p id="lg-result">{{ job_offers|length > 0 ? 'Il y a '~ job_offers|length ~' résultats correspondant à votre recherche' : 'Pas de résultats' }}</p>
         <div class="list-group">
             {% for job_offer in job_offers %}
-                <div class="list-jobs">
-                    <div class="job-item my-3 d-flex flex-column position-relative">
-                        <div class="job-info d-flex justify-content-between">
-                            <h1 class="job-title">{{ job_offer.title }}</h1>
-                            <div class="job-tags d-flex flex-row position-absolute">
-                                <span class="job-tag rounded-1 p-1">{{ job_offer.jobType == 0 ? 'Stage' : 'Emploi' }}</span>
-                                <span class="job-tag rounded-1 p-1">Télétravail</span>
+                <a class="list-link" href="{{ path('job_offer_show', {'id': job_offer.id}) }}">
+                    <div class="list-jobs" onclick="{{ path('job_offer_show', {'id': job_offer.id}) }}">
+                        <div class="job-item my-3 d-flex flex-column position-relative">
+                            <div class="job-info d-flex justify-content-between">
+                                <h1 class="job-title">{{ job_offer.title }}</h1>
+                                <div class="job-tags d-flex flex-row position-absolute">
+                                    <span class="job-tag p-1">{{ job_offer.jobType == 0 ? 'Stage' : 'Emploi' }}</span>
+                                    <span class="job-tag p-1">{{ job_offer.jobStyle == 0 ? 'Sur place' : 'Télétravail' }}</span>
+                                </div>
                             </div>
+                            <p class="job-description mt-2">{{ job_offer.description }}</p>
+                            <h4 class="job-publication d-flex flex-row align-items-end flex-column">{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</h4>
                         </div>
-                        <p class="job-description mt-2">{{ job_offer.description }}</p>
-                        <h4 class="job-publication d-flex flex-row align-items-end flex-column">{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</h4>
                     </div>
-                </div>
+                </a>
             {% endfor %}
         </div>
     </div>

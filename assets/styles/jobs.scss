@@ -12,6 +12,16 @@ body {
   margin-right: $spacer;
 }
 
+.list-link {
+  text-decoration: none;
+  color: $mainBackgroundTheme;
+}
+
+.list-link:hover {
+  text-decoration: none;
+  color: $mainBackgroundTheme;
+}
+
 .job-item {
   background-color: $elementTheme;
   border-radius: 8px;

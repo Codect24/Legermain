@@ -5,10 +5,15 @@ namespace App\Controller;
 use App\Entity\JobOfferAnswer;
 use App\Form\JobOfferAnswerType;
 use App\Repository\JobOfferAnswerRepository;
+use App\Repository\JobOfferRepository;
+use ContainerIYDh6oG\getJobOfferRepositoryService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Vich\UploaderBundle\Entity\File;
+use Vich\UploaderBundle\Handler\DownloadHandler;
 
 #[Route('/job/offer/answer')]
 class JobOfferAnswerController extends AbstractController
@@ -21,8 +26,9 @@ class JobOfferAnswerController extends AbstractController
         ]);
     }
 
+
     #[Route('/new', name: 'job_offer_answer_new', methods: ['GET', 'POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, JobOfferRepository $jobOfferRepository): Response
     {
         $jobOfferAnswer = new JobOfferAnswer();
         $form = $this->createForm(JobOfferAnswerType::class, $jobOfferAnswer);
@@ -32,13 +38,13 @@ class JobOfferAnswerController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($jobOfferAnswer);
             $entityManager->flush();
-
-            return $this->redirectToRoute('job_offer_answer_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('job_offer_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('job_offer_answer/new.html.twig', [
             'job_offer_answer' => $jobOfferAnswer,
             'form' => $form,
+            'job_offer' => $jobOfferRepository->find($_GET['jobOfferID']),
         ]);
     }
 
@@ -48,6 +54,11 @@ class JobOfferAnswerController extends AbstractController
         return $this->render('job_offer_answer/show.html.twig', [
             'job_offer_answer' => $jobOfferAnswer,
         ]);
+    }
+
+    public function downloadImageAction(File $image, DownloadHandler $downloadHandler): Response
+    {
+        return $downloadHandler->downloadObject($image, $fileField = 'imageFile');
     }
 
     #[Route('/{id}/edit', name: 'job_offer_answer_edit', methods: ['GET', 'POST'])]

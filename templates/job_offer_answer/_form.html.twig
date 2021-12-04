@@ -1,4 +1,38 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+    <div class="lg-answerOffer d-flex flex-column">
+        <div class="d-flex flex-column col-6">
+            <div class="d-flex flex-row">
+                <div class="d-flex flex-column my-1">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+                <div class="d-flex flex-column my-1 mx-3">
+                    {{ form_label(form.firstName) }}
+                    {{ form_widget(form.firstName) }}
+                </div>
+                <div class="d-flex flex-column my-1">
+                    {{ form_label(form.phoneNumber) }}
+                    {{ form_widget(form.phoneNumber) }}
+                </div>
+            </div>
+            <div class="d-flex flex-column my-1">
+                {{ form_label(form.mail) }}
+                {{ form_widget(form.mail) }}
+                {{ form_widget(form.jobOfferId, {'value' : job_offer.id}) }}
+                {{ form_widget(form.archivingState, {'value' : 0}) }}
+                {{ form_widget(form.jobOfferState, {'value' : 0}) }}
+            </div>
+            <div class="lg-answerOffer-updateFiles d-flex flex-row mt-3">
+                {{ form_widget(form.cvFile) }}
+                {{ form_widget(form.lmFile) }}
+            </div>
+        </div>
+        <div class="d-flex flex-column my-3">
+            <label>Lettre de motivation</label>
+            {{ form_widget(form.description, {'attr' : {class : "lg-answerOffer-textArea"}}) }}
+        </div>
+    </div>
+
+    <button class="lg-jobOffer-button mt-1 float-end">{{ button_label|default('Postuler !') }}</button>
 {{ form_end(form) }}

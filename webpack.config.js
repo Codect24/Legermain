@@ -25,6 +25,7 @@ Encore
     .addEntry('js/tabs', './assets/js/tabs.js')
 
     .addEntry('styles/jobs', './assets/styles/jobs.scss')
+    .addEntry('styles/jobOffer', './assets/styles/jobOffer.scss')
     .addEntry('styles/account', './assets/styles/account.scss')
 
     .copyFiles({

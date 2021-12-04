@@ -7,3 +7,19 @@ vich_uploader:
             upload_destination: '%kernel.project_dir%/public%article_images%'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
+        job_cv:
+            uri_prefix: '%job_cv%'
+            upload_destination: '%kernel.project_dir%/public%job_cv%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: true
+            delete_on_update: true
+            delete_on_remove: true
+
+        job_lm:
+            uri_prefix: '%job_lm%'
+            upload_destination: '%kernel.project_dir%/public%job_lm%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: true
+            delete_on_update: true
+            delete_on_remove: true
+

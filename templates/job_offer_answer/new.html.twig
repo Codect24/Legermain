@@ -1,11 +1,29 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/jobOffer') }}
+{% endblock %}
 {% block title %}New JobOfferAnswer{% endblock %}
 
 {% block body %}
-    <h1>Create new JobOfferAnswer</h1>
-
-    {{ include('job_offer_answer/_form.html.twig') }}
+    {{ include('menu/menu.html.twig', {lightMode: true}) }}
+    <div class="main-content">
+        <div class="lg-jobOffer-head d-flex flex-row">
+            <div class="lg-jobOffer-head-firstLetter">
+                <h1 class="d-flex align-items-center justify-content-center">{{ job_offer.title|first|upper }}</h1>
+            </div>
+            <div class="lg-jobOffer-head-content d-flex flex-column mx-4">
+                <h1>{{ job_offer.title }}</h1>
+                <h2>{{ "Publié " }}{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</h2>
+                <div class="job-tags d-flex flex-row">
+                    <span class="job-tag p-1">{{ job_offer.jobType == 0 ? 'Stage' : 'Emploi' }}</span>
+                    <span class="job-tag p-1">{{ job_offer.jobStyle == 0 ? 'Sur place' : 'Télétravail' }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="lg-jobOffer-content d-flex flex-column mt-5">
+            {{ include('job_offer_answer/_form.html.twig', {job_offer: job_offer}) }}
+        </div>
 
     <a href="{{ path('job_offer_answer_index') }}">back to list</a>
 {% endblock %}
