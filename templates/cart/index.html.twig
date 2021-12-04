@@ -10,7 +10,7 @@
 
 {% block body %}
     <a href="{{ path('echoppe_index') }}">
-        <div class="container-fluid ech-bandeau" style="background-image: url({{ asset('/echoppe/echoppe_bandeau.png') }})">
+        <div class="container-fluid ech-bandeau" style="background-image: url({{ asset('build/images/echoppe_bandeau.png') }})">
             <h1><span>Legermain</span><span class="ech-title">Échoppe</span></h1>
         </div>
     </a>
@@ -34,7 +34,7 @@
                             {% for item in form.items %}
                                 <li class="list-group-item d-flex">
                                     <div class="flex-fill mr-2">
-                                        <img src="{% if(item.vars.data.product.file is not null) %}{{ vich_uploader_asset(item.vars.data.product, 'imageFile') }}{% else %}/produits/0.png{% endif %}" alt="{{ item.vars.data.product.name }}">
+                                        <img src="{% if(item.vars.data.product.file is not null) %}{{ vich_uploader_asset(item.vars.data.product, 'imageFile') }}{% else %}{{ asset('build/images/product_no_image.png') }}{% endif %}" alt="{{ item.vars.data.product.name }}">
                                     </div>
                                     <div class="flex-fill mr-2">
                                         <h5 class="mt-0 mb-0">{{ item.vars.data.product.name }}</h5>

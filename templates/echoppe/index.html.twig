@@ -9,7 +9,7 @@
 
 {% block body %}
     <a href="{{ path('echoppe_index') }}">
-        <div class="container-fluid ech-bandeau" style="background-image: url({{ asset('/echoppe/echoppe_bandeau.png') }})">
+        <div class="container-fluid ech-bandeau" style="background-image: url({{ asset('build/images/echoppe_bandeau.png') }})">
             <h1><span>Legermain</span><span class="ech-title">Échoppe</span></h1>
         </div>
     </a>
@@ -51,7 +51,7 @@
                                 {% if(product.file is not null) %}
                                     <img src="{{ vich_uploader_asset(product, 'imageFile') }}" class="card-img-top" alt="{{ product.name }}">
                                 {% else %}
-                                    <img src="/produits/0.png" class="card-img-top" alt="Image non disponible">
+                                    <img src="{{ asset('build/images/product_no_image.png') }}" class="card-img-top" alt="Image non disponible">
                                 {% endif %}
                                 <div class="card-body">
                                     <h2 class="card-title">{{ product.name }}</h2>
