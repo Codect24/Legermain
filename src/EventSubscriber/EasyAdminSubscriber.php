@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Security;
 use App\Entity\Article;
+use App\Entity\Realisation;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
@@ -41,5 +42,6 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 			$user = $this->security->getUser();
 			$entity->setUser($user);
 		}
+        return;
 	}
 }
