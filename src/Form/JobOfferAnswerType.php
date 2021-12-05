@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\HiddenField;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,7 +23,7 @@ class JobOfferAnswerType extends AbstractType
         $builder
             ->add('name')
             ->add('firstName')
-            ->add('mail')
+            ->add('mail', EmailType::class)
             ->add('phoneNumber')
             ->add('description', TextareaType::class, array('attr' => array('cols' => '5', 'rows' => '8')))
             ->add('cvFile', VichFileType::class, [
@@ -34,7 +35,7 @@ class JobOfferAnswerType extends AbstractType
                 'asset_helper' => true,
                 'constraints' => [
                     new File([
-                        'maxSize' => '50000k',
+                        'maxSize' => '30000k',
                         'mimeTypes' => [
                             'application/pdf',
                             'application/x-pdf',
