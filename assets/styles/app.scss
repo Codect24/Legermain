@@ -106,3 +106,25 @@ body, html {
   font-weight: lighter;
   font-size: 22px;
 }
+
+.form-control{
+  background-color: #C9B498;
+  color: white;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+}
+.form-control:focus{
+  background-color: #b9a080;
+  color: white;
+}
+
+.btn-primary{
+  margin: 1em;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+  border: none;
+  background-color: #C9B498;
+  color: white;
+}
+
+.btn-primary:hover{
+  background-color: #d9c6b2;
+}
