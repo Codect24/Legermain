@@ -27,7 +27,7 @@ class InscriptionController extends AbstractController
     {
         $user = new User();
         $form = $this->createForm(InscriptionType::class, $user);
-        $role= array('utilisateur');
+        $role= array('ROLE_USER');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
