@@ -19,6 +19,10 @@
                         <h2>
                             {{ realisation.title }}
                         </h2>
+                        <h3>Partager notre realisation :
+                        {% set currentPath = path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')) %}
+                        {{ currentPath | share(realisation.title) }}</h3>
                         <p>
                             {% if realisation.description | split(' ')[5] is defined %}
                                 {{ realisation.description | split(' ')[5] ~ '...' | raw }}

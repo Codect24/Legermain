@@ -243,6 +243,9 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "social-links/social-links": {
+        "version": "v1.15.1"
+    },
     "stof/doctrine-extensions-bundle": {
         "version": "1.7",
         "recipe": {
