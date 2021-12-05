@@ -1,13 +1,71 @@
 {% extends 'base.html.twig' %}
-
+{% form_theme form _self %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 {% block title %}Inscription!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/inscription') }}
+{% endblock %}
 
 {% block body %}
+
+
     {% block content %}
-        <h1>Inscription</h1>
+        {{ include('menu/menu.html.twig', {lightMode: false}) }}
 
-        {{ form(form) }}
 
+       <div id="corps" >
+            <div class="formulaireInscription">
+                <h1>Inscription</h1>
+                {{ form_start(form) }}
+
+                    <div class="form-group"  >
+                        {{ form_label(form.nom) }}
+                        {{ form_widget(form.nom) }}
+                        {{ form_errors(form.nom) }}
+                    </div>
+                    <div class="form-group" >
+                        {{ form_label(form.prenom) }}
+                        {{ form_widget(form.prenom) }}
+                        {{ form_errors(form.prenom) }}
+                    </div>
+                {{ form_row(form.password) }}
+                {{ form_row(form.email) }}
+                <div class="form-group">
+                    {{ form_label(form.telephone) }}
+                    {{ form_widget(form.telephone)}}
+                    {{ form_errors(form.telephone) }}
+                </div>
+                <div id="submit">
+                    {{ form_row(form.Envoyer) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+
+           <span class="ligne"></span>
+
+
+
+
+            <div class="bouton">
+
+                <h1>connexion</h1>
+
+                <a href="/connexion">
+
+                    <div class="cercle">
+
+                        <div id="triangleDroite">
+
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+
+
+       </div>
     {% endblock %}
 
 {% endblock %}
