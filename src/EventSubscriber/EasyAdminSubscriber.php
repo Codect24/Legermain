@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Security;
 use App\Entity\Article;
+use App\Entity\Realisation;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
@@ -28,13 +29,19 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        if (($entity instanceof Article)) {
-            $now = new DateTime('now');
-            $entity->setPublicationDate($now);
-            $user = $this->security->getUser();
-            $entity->setUser($user);
-            return;
-        }
+		if ($entity instanceof Realisation) {
+			$now = new DateTime('now');
+			$entity->setPublicationDate($now);
+			$user = $this->security->getUser();
+			$entity->setUserID($user);
+			return;
+		}
+		if ($entity instanceof Article) {
+			$now = new DateTime('now');
+			$entity->setPublicationDate($now);
+			$user = $this->security->getUser();
+			$entity->setUser($user);
+		}
         return;
-    }
+	}
 }

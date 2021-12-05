@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Realisation index{% endblock %}
+     {% block stylesheets %}
+         {{ parent() }}
+         {{ encore_entry_link_tags('styles/realisation') }}
+     {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_link_tags('js/realisation') }}
+    {% endblock %}
+{% block body %}
+    <h1>Realisations</h1>
+    <div class="container">
+
+    {% for realisation in realisations |batch(4)%}
+        <div class="gallery-wrap">
+            {% for column in realisation%}
+                <div onclick="location.href='{{ path('presentation', {'slug': column.slug}) }}';" class="item" style="cursor: pointer; background-image: url('../uploads/images/realisation/{{ column.image }}')"></div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <tr>
+            <td colspan="6">Une erreur est survenue, article introuvable.</td>
+        </tr>
+    {% endfor %}
+
+    </div>
+    </div>
+    </tbody>
+    </table>
+{% endblock %}

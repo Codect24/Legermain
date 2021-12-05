@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\JobOffer;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class JobOfferCrudController extends AbstractCrudController

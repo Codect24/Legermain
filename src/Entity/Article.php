@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -57,9 +58,20 @@ class Article
 
     /**
      * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
+     * @Assert\File(maxSize="2147483648")
      * @var File
      */
     private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $highlighted;
 
 
     public function setImageFile(File $image = null)
@@ -164,7 +176,7 @@ class Article
     {
         if (!$this->CommentsRelation->contains($commentsRelation)) {
             $this->CommentsRelation[] = $commentsRelation;
-            $commentsRelation->setArticleId($this);
+            $commentsRelation->setArticle($this);
         }
 
         return $this;
@@ -174,10 +186,34 @@ class Article
     {
         if ($this->CommentsRelation->removeElement($commentsRelation)) {
             // set the owning side to null (unless already changed)
-            if ($commentsRelation->getArticleId() === $this) {
-                $commentsRelation->setArticleId(null);
+            if ($commentsRelation->getArticle() === $this) {
+                $commentsRelation->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getHighlighted(): ?bool
+    {
+        return $this->highlighted;
+    }
+
+    public function setHighlighted(bool $highlighted): self
+    {
+        $this->highlighted = $highlighted;
 
         return $this;
     }

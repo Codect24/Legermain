@@ -21,6 +21,12 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('styles/echoppe', './assets/styles/echoppe.scss')
+    .addEntry('styles/dashboard', './assets/styles/dashboard.scss')
+    .addEntry('styles/produit', './assets/styles/produit.scss')
+    .addEntry('styles/panier', './assets/styles/panier.scss')
+    .addEntry('styles/article', './assets/styles/article.scss')
+    .addEntry('styles/article_show', './assets/styles/article_show.scss')
     .addEntry('js/menu', './assets/js/menu.js')
     .addEntry('js/tabs', './assets/js/tabs.js')
 
@@ -37,6 +43,8 @@ Encore
         from: './assets/styles/fonts',
         to: 'fonts/[path][name].[ext]',
     })
+    .addEntry('styles/realisation', './assets/styles/realisation.scss')
+    .addEntry('js/realisation', './assets/js/realisation.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
