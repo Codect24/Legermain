@@ -31,16 +31,6 @@
         </div>
         <hr>
         <div class="row">
-            {% if app.user %}
-            <h2>Commentaires</h2>
-            {{ form_start(form) }}
-            {{ form_end(form) }}
-            {% else %}
-                <p><a href="{{ path('app_login') }}">Connectez vous</a> pour pouvoir laisser un commentaire !</p>
-            {% endif %}
-        </div>
-        <hr>
-        <div class="row">
             {% if(comments is null) %}
                 <p>Aucun commentaire pour le moment</p>
             {% else %}
@@ -51,8 +41,8 @@
                                 {{ comment.user.email }}
                             </div>
                             <div class="card-body">
-                                    <p>{{ comment.description }}</p>
-                                    <p class="card-footer fst-italic">— {{ comment.publicationDate|date('d.m.Y H:i:s') }}</p>
+                                <p>{{ comment.description }}</p>
+                                <p class="card-footer fst-italic">— {{ comment.publicationDate|date('d.m.Y H:i:s') }}</p>
 
                             </div>
                         </div>
@@ -60,5 +50,15 @@
                 {% endfor %}
             {% endif %}
         </div>
+        <div class="row">
+            {% if app.user %}
+            <h2>Commentaires</h2>
+            {{ form_start(form) }}
+            {{ form_end(form) }}
+            {% else %}
+                <p><a href="{{ path('app_login') }}">Connectez vous</a> pour pouvoir laisser un commentaire !</p>
+            {% endif %}
+        </div>
+        <hr>
     </div>
 {% endblock %}
