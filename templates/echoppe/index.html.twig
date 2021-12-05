@@ -14,7 +14,7 @@
         </div>
     </a>
     <a href="{{ path('home') }}">
-        <img class="ech-logo" src="{{ asset('build/images/logo.png') }}" alt="Logo Legermain">
+        <div class="ech-logo">{{ include('menu/menu.html.twig', {lightMode: false}) }}</div>
     </a>
     <div class="container-fluid">
         <div class="row">

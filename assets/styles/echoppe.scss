@@ -6,8 +6,8 @@ body {
   .ech-logo {
     width: 10rem;
     position: fixed;
-    top: 2.5rem;
-    left: 5rem;
+    top: 0;
+    left: 0;
     z-index: 2;
   }
   a {
@@ -21,7 +21,7 @@ body {
 
       position: sticky;
       top: 0;
-      z-index: 1;
+      z-index: 0;
       h1 {
         color: white;
         font-size: 4rem;
@@ -47,7 +47,7 @@ body {
           color: white;
           padding: 0.5rem 3rem;
           width: inherit;
-          background-color: #9F5B3D;
+          background-color: #C9B498;
           border-radius: 1rem;
         }
 
@@ -59,6 +59,8 @@ body {
           margin-top: 1rem;
           select {
             background-color: #C9B498;
+            border-color: transparent;
+            color: white;
             border-radius: 0.5rem;
           }
         }
@@ -91,12 +93,13 @@ body {
               margin: 0.5rem 0;
             }
             input:checked + label {
+              color: white;
               background-color: #C9B498;
             }
           }
           .ech-filtre-val {
             button {
-              background-color: #9F5B3D;
+              background-color: #C9B498;
               border-radius: 0.5rem;
               padding: 0.25rem 2rem;
               box-shadow: none;
@@ -120,7 +123,7 @@ body {
         margin-bottom: 1rem;
       }
       .btn {
-        background-color: #9F5B3D;
+        background-color: #ad9f85;
         color: white;
       }
       span {
