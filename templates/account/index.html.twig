@@ -12,24 +12,27 @@
             <div class="tab">
                 <button class="tablinks" onclick="showSettings(event, 'Account')" id="defaultOpen">Compte</button>
                 <button class="tablinks" onclick="showSettings(event, 'Orders')">Commandes</button>
-                <button class="tablinks" onclick="showSettings(event, 'Notifications')">Notifications</button>
                 <button class="tablinks" onclick="showSettings(event, 'Password')">Mot de Passe</button>
             </div>
 
             <div id="Account" class="tabcontent mt-3">
                 <p class="lg-account-help">Vous trouverez ici vos informations personnelles</p>
-{#                {{ form(form) }}#}
-                <form class="lg-account-userDatas col">
+                <form class="lg-account-userDatas col" method="post">
                     <div class="d-flex flex-row">
                         <div class="d-flex flex-column lg-account-userDatas-name">
                             <label for="name">Nom</label>
-                            <input class="lg-account-inputText" name="name" type="text" value="{{ user.nom }}">
+                            <input class="lg-account-inputText" name="name" type="text" value="{{ user.nom }}" pattern="([A-Za-z]+(['|\-|\s]?[A-Za-z]+)*)+">
                         </div>
                         <div class="d-flex flex-column lg-account-userDatas-firstName mx-3">
                             <label for="firstName">Prenom</label>
                             <input class="lg-account-inputText lg-account-userDatas-firstName" name="firstName"
-                                   type="text" value="{{ user.prenom }}">
+                                   type="text" value="{{ user.prenom }}" pattern="([A-Za-z]+(['|\-|\s]?[A-Za-z]+)*)+">
                         </div>
+                    </div>
+                    <div class="d-flex flex-column lg-account-userDatas-phone mt-2">
+                        <label for="phone">Télephone</label>
+                        <input class="lg-account-inputText lg-account-userDatas-phone" name="phone"
+                               type="text" value="{{ user.telephone }}" pattern="^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$">
                     </div>
                     <div class="d-flex flex-column mt-3">
                         <label for="email">Email</label>
@@ -40,11 +43,21 @@
             </div>
 
             <div id="Orders" class="tabcontent">
-
-            </div>
-
-            <div id="Notifications" class="tabcontent">
-                <p class="lg-account-help">Vous trouverez ici vos informations personnelles</p>
+                <p class="lg-account-help">Vous trouverez ici la liste de vos commandes</p>
+                <div class="lg-account-orders">
+                    <table class="lg-account-order">
+                        <thead>
+                        <tr>
+                            <th>ID Commande</th><th class="mx-3">Prix Total</th><th>Date Commande</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for order in orders %}
+                            <td>{{ order.id }}</td><td class="mx-3">{{ order.total }}</td><td>{{ order.dateCreation|date }}</td>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div id="Password" class="tabcontent">

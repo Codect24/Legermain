@@ -1,5 +1,6 @@
 $mainBackgroundTheme: #EDEAE6;
 $elementTheme: #C9B498;
+$externTheme: #081E0A;
 
 .main-content {
   margin-top: 10%;
@@ -34,7 +35,7 @@ $elementTheme: #C9B498;
     background-color: $elementTheme;
     color: white;
     border-radius: 8px;
-    box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+    box-shadow: 5px 5px 18px 5px rgba(0, 0, 0, 0.16);
   }
 
   .tab button.active {
@@ -42,7 +43,7 @@ $elementTheme: #C9B498;
     font-weight: bold;
     color: white;
     border-radius: 8px;
-    box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+    box-shadow: 5px 5px 18px 5px rgba(0, 0, 0, 0.16);
   }
 
   .tabcontent {
@@ -75,7 +76,7 @@ $elementTheme: #C9B498;
     font-weight: bold;
     color: $mainBackgroundTheme;
     border-radius: 8px;
-    box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+    box-shadow: 5px 5px 18px 5px rgba(0, 0, 0, 0.16);
     border: none;
     outline: none;
     padding: 8px 14px;
@@ -85,15 +86,23 @@ $elementTheme: #C9B498;
     width: 14em;
   }
 
-  .lg-account-inputButton {
-    background-color: $elementTheme;
-    font-weight: bold;
-    color: $mainBackgroundTheme;
-    border-radius: 8px;
-    box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
-    border: none;
-    padding: 14px;
+}
+
+.lg-account-orders {
+  table {
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
   }
 
+  th, td {
+    padding: 1em;
+    background: $elementTheme;
+    border-bottom: 2px solid $mainBackgroundTheme;
+  }
 
+  tbody tr:hover{
+    color: $mainBackgroundTheme;
+  }
 }
+

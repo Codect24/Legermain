@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/reset') }}
+{% endblock %}
+{% block title %}Reinitialisation{% endblock %}
+{% block body %}
+    {{ include('menu/menu.html.twig', {lightMode: true}) }}
+
+    <div class="main-content lg-reset">
+        {% for flashError in app.flashes('reset_password_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+
+        {{ form_start(requestForm) }}
+        <div class="d-flex flex-column my-1">
+            {{ form_label(requestForm.email) }}
+            {{ form_widget(requestForm.email) }}
+        </div>
+        <button class="lg-account-inputButton mt-5 float-end">Envoyer un mail de confirmation</button>
+        {{ form_end(requestForm) }}
+    </div>
+
+{% endblock %}

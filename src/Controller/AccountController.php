@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,34 +14,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccountController extends AbstractController
 {
     #[Route('/account', name: 'account')]
-    public function index(UserRepository $userRepository): Response
+    public function index(): Response
     {
         $user = $this->getDoctrine()
             ->getRepository('App:User')
             ->findOneBy(array('email' => $this->getUser()->getUserIdentifier()));
 
-        if(isset($_GET['name']) && isset($_GET['firstName']) && isset($_GET['email'])) {
-            $queryBuilder = $this->getDoctrine()->getRepository('App:User')->createQueryBuilder();
-            $query = $queryBuilder ->update('App:User', 'u')
-                ->set('u.nom', ':name')
-                ->set('u.prenom', ':firstName')
-                ->set('u.email', ':email')
-                ->where('u.id = :id')
-                ->setParameter('name', $user->getNom())
-                ->setParameter('firstName', $user->getPrenom())
-                ->setParameter('email', $user->getEmail())
-                ->setParameter('id', $user->getId())
-                ->getQuery();
-            $result = $query ->execute();
+        if(isset($_POST['name']) && isset($_POST['firstName']) && isset($_POST['email']) && isset($_POST['phone'])) {
+            $user->setNom(ucfirst(strtolower(htmlspecialchars($_POST['name']))));
+            $user->setPrenom(ucfirst(strtolower(htmlspecialchars($_POST['firstName']))));
+            $user->setEmail(ucfirst(strtolower(htmlspecialchars($_POST['email']))));
+            $user->setTelephone(ucfirst(strtolower(htmlspecialchars($_POST['phone']))));
+            $this->getDoctrine()->getManager()->flush();
         }
 
         return $this->render('account/index.html.twig', [
             'controller_name' => 'AccountController',
-            'user' => $user
+            'user' => $user,
+            'orders' => $this->getDoctrine()->getRepository('App:Order')->findBy(array('user' => $user->getId())),
         ]);
     }
-
-
-
-
 }
+

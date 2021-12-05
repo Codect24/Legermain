@@ -29,10 +29,12 @@ Encore
     .addEntry('styles/article_show', './assets/styles/article_show.scss')
     .addEntry('js/menu', './assets/js/menu.js')
     .addEntry('js/tabs', './assets/js/tabs.js')
+    .addEntry('js/entryForm', './assets/js/entryForm.js')
 
     .addEntry('styles/jobs', './assets/styles/jobs.scss')
     .addEntry('styles/jobOffer', './assets/styles/jobOffer.scss')
     .addEntry('styles/account', './assets/styles/account.scss')
+    .addEntry('styles/reset', './assets/styles/reset.scss')
 
     .copyFiles({
         from: './assets/images',
