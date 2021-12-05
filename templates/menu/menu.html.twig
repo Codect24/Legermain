@@ -10,6 +10,7 @@
         <hr class="lg-home-spacer my-3" style="height: 4px; width: 15em"/>
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('admin')}}">Administration</a>
+                <a href="{{ path('account')}}">Compte</a>
                 <a href="{{ path('app_logout')}}">Deconnexion</a>
             {% elseif is_granted('ROLE_USER') %}
                 <a href="{{ path('app_login')}}">Compte</a>

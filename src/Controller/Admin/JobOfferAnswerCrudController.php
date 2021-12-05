@@ -40,7 +40,7 @@ class JobOfferAnswerCrudController extends AbstractCrudController
             TextEditorField::new('description'),
             UrlField::new('linkCv'),
             UrlField::new('linkLm'),
-            NumberField::new('jobOfferState'),
+            BooleanField::new('jobOfferState'),
             BooleanField::new('archivingState'),
             DateTimeField::new('updatedAt'),
         ];

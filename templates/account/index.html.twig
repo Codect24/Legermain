@@ -8,8 +8,6 @@
 {% block body %}
     {{ include('menu/menu.html.twig', {lightMode: true}) }}
     <div class="main-content">
-
-
         <div class="lg-account-tabs">
             <div class="tab">
                 <button class="tablinks" onclick="showSettings(event, 'Account')" id="defaultOpen">Compte</button>
@@ -25,17 +23,17 @@
                     <div class="d-flex flex-row">
                         <div class="d-flex flex-column lg-account-userDatas-name">
                             <label for="name">Nom</label>
-                            <input class="lg-account-inputText" name="name" type="text">
+                            <input class="lg-account-inputText" name="name" type="text" value="{{ user.nom }}">
                         </div>
                         <div class="d-flex flex-column lg-account-userDatas-firstName mx-3">
                             <label for="firstName">Prenom</label>
                             <input class="lg-account-inputText lg-account-userDatas-firstName" name="firstName"
-                                   type="text">
+                                   type="text" value="{{ user.prenom }}">
                         </div>
                     </div>
                     <div class="d-flex flex-column mt-3">
                         <label for="email">Email</label>
-                        <input class="lg-account-inputText" name="email" type="email">
+                        <input class="lg-account-inputText" name="email" type="email" value="{{ user.email }}">
                     </div>
                     <input class="lg-account-inputButton mt-5 float-end" type="submit" value="Sauvegarder">
                 </form>
