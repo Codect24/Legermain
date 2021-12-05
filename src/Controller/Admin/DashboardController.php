@@ -61,6 +61,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Commentaires', 'fa fa-comments', Comments::class),
             MenuItem::section('Emploi'),
             MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
+            MenuItem::linkToCrud('Réponses', 'far fa-folder-open', JobOfferAnswer::class),
             MenuItem::section('Échoppe'),
             MenuItem::linkToCrud('Produits', 'fa fa-cart-plus', Produit::class),
             MenuItem::linkToCrud('Catégories', 'fa fa-bookmark', ProduitCategorie::class),
@@ -70,8 +71,6 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Réalisations', 'fa fa-wrench', Realisation::class),
             MenuItem::section('Autre'),
             MenuItem::linkToRoute('Legermain', 'fa fa-sign-out-alt','home'),
-            MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
-            MenuItem::linkToCrud('Réponses', 'far fa-folder-open', JobOfferAnswer::class)
         ];
     }
 }

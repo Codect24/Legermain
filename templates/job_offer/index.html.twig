@@ -46,56 +46,6 @@
                 </a>
             {% endfor %}
         </div>
-        <div class="list-jobs">
-            <div class="job-item border rounded-3 p-4 d-flex flex-column">
-                <div class="job-info d-flex">
-                    <h1 class="job-title">Assisstant juridique</h1>
-                </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <div class="d-flex flex-row justify-content-between">
-                    <div class="job-tags">
-                        <span class="job-tag">Stage</span>
-                    </div>
-                    <h4>Il y a deux mois</h4>
-                </div>
-            </div>
-        </div>
+
     </div>
-
-
-    {# <table class="table"> #}
-    {# <thead> #}
-    {# <tr> #}
-    {# <th>Id</th> #}
-    {# <th>Title</th> #}
-    {# <th>Description</th> #}
-    {# <th>Details</th> #}
-    {# <th>JobType</th> #}
-    {# <th>PublicationDate</th> #}
-    {# <th>actions</th> #}
-    {# </tr> #}
-    {# </thead> #}
-    {# <tbody> #}
-    {# {% for job_offer in job_offers %} #}
-    {# <tr> #}
-    {# <td>{{ job_offer.id }}</td> #}
-    {# <td>{{ job_offer.title }}</td> #}
-    {# <td>{{ job_offer.description }}</td> #}
-    {# <td>{{ job_offer.details }}</td> #}
-    {# <td>{{ job_offer.jobType }}</td> #}
-    {# <td>{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</td> #}
-    {# <td> #}
-    {# <a href="{{ path('job_offer_show', {'id': job_offer.id}) }}">show</a> #}
-    {# <a href="{{ path('job_offer_edit', {'id': job_offer.id}) }}">edit</a> #}
-    {# </td> #}
-    {# </tr> #}
-    {# {% else %} #}
-    {# <tr> #}
-    {# <td colspan="7">no records found</td> #}
-    {# </tr> #}
-    {# {% endfor %} #}
-    {# </tbody> #}
-    {# </table> #}
-
-    {# <a href="{{ path('job_offer_new') }}">Create new</a> #}
 {% endblock %}
