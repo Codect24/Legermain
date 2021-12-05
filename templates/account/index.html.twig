@@ -38,7 +38,7 @@
                         <label for="email">Email</label>
                         <input class="lg-account-inputText" name="email" type="email" value="{{ user.email }}">
                     </div>
-                    <input class="lg-account-inputButton mt-5 float-end" type="submit" value="Sauvegarder">
+                    <input class="lg-subitButton mt-5 float-end mt-5 float-end" type="submit" value="Sauvegarder">
                 </form>
             </div>
 
@@ -63,21 +63,7 @@
             <div id="Password" class="tabcontent">
                 <form class="lg-account-userDatas col">
                     <p class="lg-account-help">Vous trouverez ici la possibilitées de modifier votre mot de passe</p>
-                    <div class="d-flex flex-column lg-account-userDatas-name">
-                        <label class="mt-2" for="password">Ancien mot de passe</label>
-                        <input class="lg-account-inputText" name="password" type="password">
-                    </div>
-                    <div class="d-flex flex-row mt-2">
-                        <div class="d-flex flex-column lg-account-userDatas-name">
-                            <label for="newPassword">Nouveau mot de passe</label>
-                            <input class="lg-account-inputText" name="newPassword" type="password">
-                        </div>
-                        <div class="d-flex flex-column lg-account-userDatas-firstName mx-3">
-                            <label for="confirmPassword">Confirmer le mot de passe</label>
-                            <input class="lg-account-inputText" name="confirmPassword" type="password">
-                        </div>
-                    </div>
-                    <input class="lg-account-inputButton mt-5 float-end" type="submit" value="Sauvegarder">
+                    <a class="lg-subitButton mt-5 float-end mt-5 float-end" href="{{ path('app_forgot_password_request') }}" style="text-decoration: none;">Réinitialiser votre mot de passe</a>
                 </form>
             </div>
         </div>

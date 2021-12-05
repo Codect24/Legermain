@@ -10,8 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Mailer\Bridge\Google\Smtp\GmailTransport;
-use Symfony\Component\Mailer\Mailer;
 use App\Form\ContactInfosType;
 
 #[Route('/contact')]
@@ -29,7 +27,7 @@ class ContactController extends AbstractController
 			$ContactInfos = $form->getData();
 			$message = (new Email())
 				->from($ContactInfos->getMail())
-				->to('thomas.timar@etu.univ-tours.fr')
+				->to('contact@legermain.tom-lefrere.fr')
 				->subject($ContactInfos->getTitle())
 				->text($ContactInfos->getMessage());
 

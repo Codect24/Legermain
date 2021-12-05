@@ -114,3 +114,13 @@ body, html {
   font-weight: lighter;
   font-size: 22px;
 }
+
+.lg-subitButton {
+  background-color: $elementTheme;
+  font-weight: bold;
+  color: $mainBackgroundTheme;
+  border-radius: 8px;
+  box-shadow: 5px 5px 18px 5px rgba(0, 0, 0, 0.16);
+  border: none;
+  padding: 14px;
+}
