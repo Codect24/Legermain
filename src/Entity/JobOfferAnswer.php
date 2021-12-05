@@ -3,10 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\JobOfferAnswerRepository;
+use App\Repository\JobOfferRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass=JobOfferAnswerRepository::class)
+ * @Vich\Uploadable
  */
 class JobOfferAnswer
 {
@@ -48,30 +53,100 @@ class JobOfferAnswer
     private $cv;
 
     /**
+     * @Vich\UploadableField(mapping="job_cv", fileNameProperty="cv")
+     * @var File|null
+     */
+    private $cvFile;
+
+    /**
+     * @return File|null
+     */
+    public function getCvFile(): ?File
+    {
+        return $this->cvFile;
+    }
+
+    /**
+     * @param File|null $cvFile
+     */
+    public function setCvFile(?File $cvFile = null): void
+    {
+        $this->cvFile = $cvFile;
+        if (null !== $cvFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $updatedAt
+     */
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTimeInterface|null
+     */
+    private $updatedAt;
+
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $motivationLetter;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @Vich\UploadableField(mapping="job_lm", fileNameProperty="motivationLetter")
+     * @var File|null
      */
-    private $publicationDate;
+    private $lmFile;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @return File|null
+     */
+    public function getLmFile(): ?File
+    {
+        return $this->lmFile;
+    }
+
+    /**
+     * @param File|null $lmFile
+     */
+    public function setLmFile(?File $lmFile = null): void
+    {
+        $this->lmFile = $lmFile;
+        if (null !== $lmFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    /**
+     * @ORM\Column(name="jobOfferState", type="integer", options={"default" : 0})
      */
     private $jobOfferState;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(name="archivingState", type="integer", options={"default" : 0})
      */
     private $archivingState;
 
     /**
-     * @ORM\ManyToOne(targetEntity=JobOffer::class, inversedBy="AnswerRelation")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $jobOfferId;
+
+
 
     public function getId(): ?int
     {
@@ -155,10 +230,9 @@ class JobOfferAnswer
         return $this->cv;
     }
 
-    public function setCv(string $cv): self
+    public function setCv(string $cv)
     {
         $this->cv = $cv;
-
         return $this;
     }
 
@@ -170,7 +244,6 @@ class JobOfferAnswer
     public function setMotivationLetter(string $motivationLetter): self
     {
         $this->motivationLetter = $motivationLetter;
-
         return $this;
     }
 
@@ -208,5 +281,15 @@ class JobOfferAnswer
         $this->archivingState = $archivingState;
 
         return $this;
+    }
+
+    public function getLinkCv()
+    {
+        return '/uploads/job/cv/'.$this->getCv();
+    }
+
+    public function getLinkLm()
+    {
+        return '/uploads/job/lm/'.$this->getMotivationLetter();
     }
 }

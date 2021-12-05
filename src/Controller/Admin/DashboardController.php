@@ -2,8 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Order;
 use App\Entity\Produit;
 use App\Entity\ProduitCategorie;
+use App\Entity\JobOfferAnswer;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,19 +57,21 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::section('Utilisateurs'),
             MenuItem::linkToCrud('Membres', 'fa fa-users', User::class),
+            MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
             MenuItem::linkToCrud('Commentaires', 'fa fa-comments', Comments::class),
             MenuItem::section('Emploi'),
             MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
             MenuItem::section('Échoppe'),
             MenuItem::linkToCrud('Produits', 'fa fa-cart-plus', Produit::class),
             MenuItem::linkToCrud('Catégories', 'fa fa-bookmark', ProduitCategorie::class),
+            MenuItem::linkToCrud('Commandes', 'fas fa-receipt', Order::class),
             MenuItem::section('Contenu'),
             MenuItem::linkToCrud('Articles', 'fa fa-pencil', Article::class),
             MenuItem::linkToCrud('Réalisations', 'fa fa-wrench', Realisation::class),
             MenuItem::section('Autre'),
-            MenuItem::linkToRoute('Legermain', 'fa fa-sign-out-alt','home')
+            MenuItem::linkToRoute('Legermain', 'fa fa-sign-out-alt','home'),
+            MenuItem::linkToCrud('Offres', 'fa fa-briefcase', JobOffer::class),
+            MenuItem::linkToCrud('Réponses', 'far fa-folder-open', JobOfferAnswer::class)
         ];
     }
-
-
 }

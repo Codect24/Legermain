@@ -30,7 +30,13 @@ Encore
     .addEntry('js/menu', './assets/js/menu.js')
     .addEntry('styles/inscription','./assets/styles/inscription.scss')
     .addEntry('styles/connexion','./assets/styles/connexion.scss')
+    .addEntry('js/tabs', './assets/js/tabs.js')
+    .addEntry('js/entryForm', './assets/js/entryForm.js')
+
     .addEntry('styles/jobs', './assets/styles/jobs.scss')
+    .addEntry('styles/jobOffer', './assets/styles/jobOffer.scss')
+    .addEntry('styles/account', './assets/styles/account.scss')
+    .addEntry('styles/reset', './assets/styles/reset.scss')
 
     .copyFiles({
         from: './assets/images',

@@ -1,0 +1,29 @@
+$mainBackgroundTheme: #EDEAE6;
+$elementTheme: #C9B498;
+$externTheme: #081E0A;
+
+.main-content {
+  margin-top: 10%;
+  $spacer: 10em;
+  margin-left: $spacer;
+  margin-right: $spacer;
+}
+
+.lg-reset {
+  label {
+    color: #081E0A;
+    font-weight: 500;
+    text-shadow: 0.30px 0.30px 0.30px #707070;
+  }
+
+  input {
+    background-color: $elementTheme;
+    font-weight: bold;
+    color: $mainBackgroundTheme;
+    border-radius: 8px;
+    box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+    border: none;
+    outline: none;
+    padding: 8px 14px;
+  }
+}

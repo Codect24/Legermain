@@ -40,10 +40,6 @@
                 <td>{{ job_offer_answer.motivationLetter }}</td>
             </tr>
             <tr>
-                <th>PublicationDate</th>
-                <td>{{ job_offer_answer.publicationDate ? job_offer_answer.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
                 <th>JobOfferState</th>
                 <td>{{ job_offer_answer.jobOfferState }}</td>
             </tr>
@@ -53,7 +49,7 @@
             </tr>
         </tbody>
     </table>
-
+    <a href="{{asset (vich_uploader_asset (job_offer_answer, 'cvFile'))}}" target="_blank">Test</a>
     <a href="{{ path('job_offer_answer_index') }}">back to list</a>
 
     <a href="{{ path('job_offer_answer_edit', {'id': job_offer_answer.id}) }}">edit</a>

@@ -20,16 +20,27 @@ class JobOfferRepository extends ServiceEntityRepository
     }
 
 //    Return a function with a matching title
-    public function findAllByTitle(string $title): array
-    {
+    public function findAllByTitle(string $title, string $style, string $type): array{
         $entityManager = $this->getEntityManager();
-        $query = $entityManager->createQuery(
-            'SELECT j
-            FROM App\Entity\JobOffer j
-            WHERE j.title LIKE :title'
-        )->setParameters(array(
-            'title' => '%' . $title . '%'
-        ));
+        if($style == 1 || $style == 2) {
+            $query = $entityManager->createQuery('SELECT j FROM App\Entity\JobOffer j WHERE j.jobStyle = :style AND j.jobType = :type AND j.title LIKE :title')->setParameters(array(
+                'style' => $style,
+                'type' => $type,
+                'title' => '%' . $title . '%'
+            ));
+        }
+        elseif ($style == 0) {
+            $query = $entityManager->createQuery('SELECT j FROM App\Entity\JobOffer j WHERE j.jobType = :type AND j.title LIKE :title')->setParameters(array(
+                'type' => $type,
+                'title' => '%' . $title . '%'
+            ));
+        }
+        else {
+            $query = $entityManager->createQuery('SELECT j FROM App\Entity\JobOffer j WHERE j.title LIKE :title')->setParameters(array(
+                'title' => '%' . $title . '%'
+            ));
+        }
+
         return $query->getResult();
     }
 

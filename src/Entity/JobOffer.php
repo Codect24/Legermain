@@ -19,6 +19,11 @@ class JobOffer
      */
     private $id;
 
+    public function __toString(): string
+    {
+        return $this->getDescription();
+    }
+
     /**
      * @ORM\Column(type="string", length=50)
      */
@@ -48,6 +53,11 @@ class JobOffer
      * @ORM\OneToMany(targetEntity=JobOfferAnswer::class, mappedBy="jobOfferID")
      */
     private $AnswerRelation;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $jobStyle;
 
     public function __construct()
     {
@@ -145,6 +155,18 @@ class JobOffer
                 $answerRelation->setJobOfferID(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getJobStyle(): ?int
+    {
+        return $this->jobStyle;
+    }
+
+    public function setJobStyle(int $jobStyle): self
+    {
+        $this->jobStyle = $jobStyle;
 
         return $this;
     }
