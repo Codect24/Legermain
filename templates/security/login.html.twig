@@ -1,71 +1,76 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Connexion{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/connexion') }}
+{% endblock %}
 
 {% block body %}
     {{ include('menu/menu.html.twig', {lightMode: false}) }}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <div id="corps">
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+            <h1>Connexion</h1>
+            <label for="inputEmail">Adresse e-mail :</label>
+            <input class="connexion_attribut" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            <label for="inputPassword">Mot de passe :</label>
+            <input class="connexion_attribut" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        connexion
-    </button>
-</form>
-
-    <div class="ligneVerticale">
             {#
-                css pour la ligne vertical
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
 
-                width: 5px
-                height:60%;
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
             #}
-    </div>
-
-    <div class="bouton">
-        <h2>inscription</h2>
-        <a href="/inscription">
-            <div id="triangleGauche">
-                {#
-                css pour la flèche
-
-                #triangle {
-                width: 0;
-                height: 0;
-                border-top: 18px solid transparent;
-                border-bottom: 18px solid transparent;
-                border-right: 30px solid blue;
-                }
-                #}
+            <div id="connexion">
+                <button id="submit" type="submit">
+                    connexion
+                </button>
             </div>
-        </a>
+        </form>
+
+        <span class="ligne"></span>
+
+        <div class="bouton">
+
+            <h1>inscription</h1>
+
+            <a href="/inscription">
+                <div class="cercle">
+                    <div id="triangleGauche">
+                        {#
+                        css pour la flèche
+
+                        #triangle {
+                        width: 0;
+                        height: 0;
+                        border-top: 18px solid transparent;
+                        border-bottom: 18px solid transparent;
+                        border-right: 30px solid blue;
+                        }
+                        #}
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 {% endblock %}

@@ -2,12 +2,13 @@
   display:flex;
   justify-content:space-around;
   align-items:center;
+
 }
-.formulaire {
+.formulaireInscription{
   width: 500px;
-  margin-top: 80px;
-  margin-left: 10%;
-  margin-right: 10%;
+
+  margin: 5% 10%;
+
   background-color: #EDEAE6;
   border-radius: 10px;
   padding: 30px 60px 30px 60px;
@@ -33,50 +34,23 @@
   background-color: #C9B498;
   margin-bottom: 20px;
   border-color: transparent;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16)
 }
 
-#inscription_prenom{
+#inscription_prenom,#inscription_password_first,#inscription_password_second,#inscription_email_first,#inscription_email_second,#inscription_nom,#inscription_telephone{
+  height: 2.5em;
   border-radius: 5px;
   background-color: #C9B498;
   margin-bottom: 20px;
   border-color: transparent;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
 }
-#inscription_password_first{
-  border-radius: 5px;
-  background-color: #C9B498;
-  margin-bottom: 20px;
-  border-color: transparent;
-}
-#inscription_password_second{
-  border-radius: 5px;
-  background-color: #C9B498;
-  margin-bottom: 20px;
-  border-color: transparent;
-}
-#inscription_email_first{
-  border-radius: 5px;
-  background-color: #C9B498;
-  margin-bottom: 20px;
-  border-color: transparent;
-}
-#inscription_email_second{
-  border-radius: 5px;
-  background-color: #C9B498;
-  margin-bottom: 20px;
-  border-color: transparent;
-}
-#inscription_nom{
-  border-radius: 5px;
-  background-color: #C9B498;
-  margin-bottom: 20px;
-  border-color: transparent;
-}
-#inscription_telephone{
-  border-radius: 5px;
-  background-color: #C9B498;
-  margin-bottom: 20px;
-  border-color: transparent;
-}
+
+
+
+
+
+
 .btn-success {
   color: #fff;
   background-color: #C9B498;
@@ -91,18 +65,18 @@
   border: solid white 3px;
   padding-top: 9px;
   padding-left: 17px;
-  margin:auto;
-
-  #triangleDroite {
-    width: 0;
-    height: 0;
-
-
-    border-top: 18px solid transparent;
-    border-bottom: 18px solid transparent;
-    border-left: 30px solid white;
-  }
+  margin: auto;
 }
+#triangleDroite {
+  width: 0;
+  height: 0;
+
+
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 30px solid white;
+}
+
 .cercle:hover{
   background-color: white;
 
@@ -135,7 +109,7 @@ h1{
   color: white;
   margin-bottom: 20px;
 }
-.formulaire:focus{
+.formulaireInscription:focus{
   background-color: #C9B498;
 }
 
@@ -148,10 +122,7 @@ h1{
 
     flex-direction: column-reverse;
   }
-  .formulaire{
-    display: flex;
-    
-  }
+
   .bouton{
     margin: 10px 10px 0 0;
     display:flex;
@@ -170,9 +141,10 @@ h1{
   body{
     background-size:auto 100% ;
   }
-  .formulaire{
+  .formulaireInscription{
     margin:0;
     background: none;
+
     form{
       color: white;
     }

@@ -9,13 +9,13 @@
 
 {% block body %}
 
-    {{ include('menu/menu.html.twig', {lightMode: false}) }}
-    {% block content %}
 
+    {% block content %}
+        {{ include('menu/menu.html.twig', {lightMode: false}) }}
 
 
        <div id="corps" >
-            <div class="formulaire">
+            <div class="formulaireInscription">
                 <h1>Inscription</h1>
                 {{ form_start(form) }}
 
@@ -47,21 +47,21 @@
 
 
 
-                    <div class="bouton">
+            <div class="bouton">
 
-                        <h1>connexion</h1>
+                <h1>connexion</h1>
 
-                        <a href="/connexion">
+                <a href="/connexion">
 
-                            <div class="cercle">
+                    <div class="cercle">
 
-                                <div id="triangleDroite">
+                        <div id="triangleDroite">
 
-                                </div>
-                            </div>
-                        </a>
-
+                        </div>
                     </div>
+                </a>
+
+            </div>
 
 
 
