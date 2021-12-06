@@ -37,6 +37,7 @@ Encore
     .addEntry('styles/jobOffer', './assets/styles/jobOffer.scss')
     .addEntry('styles/account', './assets/styles/account.scss')
     .addEntry('styles/reset', './assets/styles/reset.scss')
+    .addEntry('styles/request', './assets/styles/request.scss')
 
     .copyFiles({
         from: './assets/images',

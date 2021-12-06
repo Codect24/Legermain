@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/request') }}
+{% endblock %}
+{% block title %}List des demandes{% endblock %}
+{% block body %}
+    {{ include('menu/menu.html.twig', {lightMode: true}) }}
+    <div class="main-content">
+        <p id="lg-result">{{ requests|length == 0 ? 'Nous n\'avez pas de demandes' : null }}</p>
+        <div class="list-group">
+            {% for request in requests %}
+                <a class="list-link" href="{{ path('job_offer_show', {'id': request.id}) }}">
+                    <div class="list-jobs" onclick="{{ path('job_offer_show', {'id': job_offer.id}) }}">
+                        <div class="job-item my-3 d-flex flex-column position-relative">
+                            <div class="job-info d-flex justify-content-between">
+                                <h1 class="job-title">{{ job_offer.title }}</h1>
+                                <div class="job-tags d-flex flex-row position-absolute">
+                                    <span class="job-tag p-1">{{ job_offer.jobType == 0 ? 'Stage' : 'Emploi' }}</span>
+                                </div>
+                            </div>
+                            <h4 class="job-publication d-flex flex-row align-items-end flex-column">{{ job_offer.publicationDate ? job_offer.publicationDate|ago(locale='fr') }}</h4>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

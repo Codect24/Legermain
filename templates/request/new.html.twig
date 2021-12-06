@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles/request') }}
+{% endblock %}
+{% block title %}Nouvelle Demande{% endblock %}
+
+{% block body %}
+    {{ include('menu/menu.html.twig', {lightMode: true}) }}
+    <div class="main-content">
+        <div class="lg-jobOffer-content d-flex flex-column mt-5">
+            {{ include('job_offer_answer/_form.html.twig', {job_offer: job_offer}) }}
+        </div>
+
+    <a href="{{ path('job_offer_answer_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,49 @@
+$mainBackgroundTheme: #EDEAE6;
+$elementTheme: #C9B498;
+$externTheme: #081E0A;
+
+body {
+  color: $mainBackgroundTheme;
+}
+
+.main-content {
+  margin-top: 10%;
+  $spacer: 10em;
+  margin-left: $spacer;
+  margin-right: $spacer;
+}
+
+.list-link {
+  text-decoration: none;
+  color: $mainBackgroundTheme;
+}
+
+.list-link:hover {
+  text-decoration: none;
+  color: $mainBackgroundTheme;
+}
+
+.job-item {
+  background-color: $elementTheme;
+  border-radius: 8px;
+  padding: 2em 4em 0.5em;
+  box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.16);
+}
+
+.job-title {
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.job-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.job-tag {
+  border: 3px $mainBackgroundTheme solid;
+  margin-left: 5px;
+  border-radius: 8px;
+}
